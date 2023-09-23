@@ -1,5 +1,6 @@
 # 🚀 Getting started with Strapi
 
+https://cloud.strapi.io/projects
 
 https://docs.strapi.io/cloud/getting-started/deployment#prerequisites
 
