@@ -1,5 +1,15 @@
 # 🚀 Getting started with Strapi
 
+```
+.cache
+.tmp
+/node_modules
+.env
+.env.*
+.es*
+package-lock.json
+```
+
 https://cloud.strapi.io/projects
 
 https://docs.strapi.io/cloud/getting-started/deployment#prerequisites
