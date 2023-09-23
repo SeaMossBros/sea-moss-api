@@ -5,3 +5,4 @@
 .env.*
 .es*
 package-lock.json
+.DS_Store
