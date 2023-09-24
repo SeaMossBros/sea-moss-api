@@ -1,20 +1,11 @@
 # 🚀 Getting started with Strapi
 
-```
-.cache
-.tmp
-/node_modules
-.env
-.env.*
-.es*
-package-lock.json
-```
+## Todo Before Grand Opening:
+ - add to footer of App: `icon by <a target="_blank" href="https://icons8.com">Icons8</a>`
 
 https://cloud.strapi.io/projects
 
 https://docs.strapi.io/cloud/getting-started/deployment#prerequisites
-
-
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
