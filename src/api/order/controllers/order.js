@@ -17,6 +17,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 firstName, 
                 lastName,
                 email,
+                totalCost,
             } = ctx.request.body;
 
             // retrieve product info first
@@ -42,6 +43,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                     
                     const qty = quantities.find(quant => quant.productId === product.id)?.quantity || 1;
 
+                    console.log('qty', qty);
+                    
                     return {
                         price_data: {
                             currency: 'usd',
@@ -60,7 +63,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             // create a stripe session
             const session = await stripe.checkout.sessions.create({
                 payment_method_types: ['card'],
-                customer_email: email || 'elijahally18@gmail.com', // TODO remove root email
+                customer_email: email || 'root@root.com', // TODO remove root email
                 mode: 'payment',
                 success_url: 'http://localhost:3000/checkout/success',
                 cancel_url: 'http://localhost:3000',
@@ -69,10 +72,16 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
             console.log('session', session);
 
-            const userName = `${firstName || 'jkdshfksa'} ${lastName || 'sadfsdaf'}`;
             // create order in strapi
+            const userName = `${firstName} ${lastName}`;
             await strapi.service('api::order.order').create({
-                data: { userName, products, stripeSessionId: session.id },
+                data: {
+                    totalCost,
+                    userName,
+                    products,
+                    stripeSessionId:
+                    session.id 
+                },
             })
 
             // return sesion id
