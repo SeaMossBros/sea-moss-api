@@ -676,26 +676,43 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiOderOder extends Schema.CollectionType {
-  collectionName: 'oders';
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
   info: {
-    singularName: 'oder';
-    pluralName: 'oders';
-    displayName: 'Oder';
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    product: Attribute.JSON;
+    totalCost: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    totalItems: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
     userName: Attribute.String;
     stripeSessionId: Attribute.String;
+    products: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::oder.oder', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::oder.oder', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -706,16 +723,31 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'Product';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
-    About: Attribute.Text;
-    Price: Attribute.Decimal;
-    Image: Attribute.Media;
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
+    about: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    price: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
     createdAtDate: Attribute.DateTime;
+    stock: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    images: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -750,7 +782,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::oder.oder': ApiOderOder;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
     }
   }

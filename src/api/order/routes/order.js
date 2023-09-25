@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * oder router
+ * order router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::oder.oder');
+module.exports = createCoreRouter('api::order.order');
