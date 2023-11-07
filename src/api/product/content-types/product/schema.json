@@ -42,6 +42,65 @@
         "videos",
         "audios"
       ]
+    },
+    "videos": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "units": {
+      "type": "enumeration",
+      "enum": [
+        "oz",
+        "Fl oz"
+      ]
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Gel",
+        "Dry",
+        "Clothing",
+        "Accessory"
+      ]
+    },
+    "certifications": {
+      "type": "text"
+    },
+    "healthBenefits": {
+      "type": "text"
+    },
+    "ingredients": {
+      "type": "text"
+    },
+    "countryOfOrigin": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "batchNumber": {
+      "type": "string"
+    },
+    "upc": {
+      "type": "string"
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "tipsForStorage": {
+      "type": "text"
     }
   }
 }
