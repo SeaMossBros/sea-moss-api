@@ -17,20 +17,8 @@
       "required": true,
       "minLength": 1
     },
-    "about": {
-      "type": "text",
-      "maxLength": 500
-    },
-    "price": {
-      "type": "decimal",
-      "min": 0
-    },
-    "createdAtDate": {
-      "type": "datetime"
-    },
-    "stock": {
-      "type": "integer",
-      "min": 0
+    "description": {
+      "type": "text"
     },
     "images": {
       "type": "media",
@@ -44,11 +32,12 @@
       ]
     },
     "videos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "weight": {
       "type": "decimal"
@@ -59,9 +48,6 @@
         "oz",
         "Fl oz"
       ]
-    },
-    "quantity": {
-      "type": "integer"
     },
     "category": {
       "type": "enumeration",
@@ -101,6 +87,32 @@
     },
     "tipsForStorage": {
       "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "product_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant",
+      "mappedBy": "product"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "variant_selection_text": {
+      "type": "string",
+      "default": "Select Variant"
+    },
+    "unit_property_selection_text": {
+      "type": "string"
     }
   }
 }
