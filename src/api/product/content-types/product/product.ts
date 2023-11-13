@@ -2,7 +2,9 @@
 
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { ProductVariant } from '../../../product-variant/content-types/product-variant/product-variant';
+import { ProductProperty } from '../../../product-property/content-types/product-property/product-property';
 import { ProductVariant_Plain } from '../../../product-variant/content-types/product-variant/product-variant';
+import { ProductProperty_Plain } from '../../../product-property/content-types/product-property/product-property';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export enum Units {
@@ -39,6 +41,7 @@ export interface Product {
     thumbnail?: { data: Media };
     variant_selection_text?: string;
     unit_property_selection_text?: string;
+    product_properties: { data: ProductProperty[] };
   };
 }
 export interface Product_Plain {
@@ -65,6 +68,7 @@ export interface Product_Plain {
   thumbnail?: Media;
   variant_selection_text?: string;
   unit_property_selection_text?: string;
+  product_properties: ProductProperty_Plain[];
 }
 
 export interface Product_NoRelations {
@@ -91,6 +95,7 @@ export interface Product_NoRelations {
   thumbnail?: number;
   variant_selection_text?: string;
   unit_property_selection_text?: string;
+  product_properties: number[];
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -117,4 +122,5 @@ export interface Product_AdminPanelLifeCycle {
   thumbnail?: AdminPanelRelationPropertyModification<Media>;
   variant_selection_text?: string;
   unit_property_selection_text?: string;
+  product_properties: AdminPanelRelationPropertyModification<ProductProperty_Plain>;
 }

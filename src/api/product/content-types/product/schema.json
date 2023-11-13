@@ -113,6 +113,12 @@
     },
     "unit_property_selection_text": {
       "type": "string"
+    },
+    "product_properties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-property.product-property",
+      "mappedBy": "product"
     }
   }
 }

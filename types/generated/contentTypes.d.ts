@@ -866,6 +866,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
     variant_selection_text: Attribute.String &
       Attribute.DefaultTo<'Select Variant'>;
     unit_property_selection_text: Attribute.String;
+    product_properties: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product-property.product-property'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -877,6 +882,43 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductPropertyProductProperty
+  extends Schema.CollectionType {
+  collectionName: 'product_properties';
+  info: {
+    singularName: 'product-property';
+    pluralName: 'product-properties';
+    displayName: 'Product Property';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    product: Attribute.Relation<
+      'api::product-property.product-property',
+      'manyToOne',
+      'api::product.product'
+    >;
+    name: Attribute.String & Attribute.Required;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-property.product-property',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-property.product-property',
       'oneToOne',
       'admin::user'
     > &
@@ -954,6 +996,7 @@ declare module '@strapi/types' {
       'api::cart-item.cart-item': ApiCartItemCartItem;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
+      'api::product-property.product-property': ApiProductPropertyProductProperty;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
     }
   }
