@@ -871,6 +871,11 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::product-property.product-property'
     >;
+    purchase_options: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::purchase-option.purchase-option'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -975,6 +980,51 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
   };
 }
 
+export interface ApiPurchaseOptionPurchaseOption extends Schema.CollectionType {
+  collectionName: 'purchase_options';
+  info: {
+    singularName: 'purchase-option';
+    pluralName: 'purchase-options';
+    displayName: 'Purchase Option';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['recurring', 'one_time']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'recurring'>;
+    has_discount: Attribute.Boolean & Attribute.DefaultTo<false>;
+    discount_value: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    discount_unit: Attribute.Enumeration<['fiat', 'percentage']> &
+      Attribute.DefaultTo<'percentage'>;
+    products: Attribute.Relation<
+      'api::purchase-option.purchase-option',
+      'manyToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::purchase-option.purchase-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::purchase-option.purchase-option',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -998,6 +1048,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-property.product-property': ApiProductPropertyProductProperty;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
+      'api::purchase-option.purchase-option': ApiPurchaseOptionPurchaseOption;
     }
   }
 }

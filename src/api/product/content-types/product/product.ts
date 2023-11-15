@@ -3,8 +3,10 @@
 import { Media } from '../../../../common/schemas-to-ts/Media';
 import { ProductVariant } from '../../../product-variant/content-types/product-variant/product-variant';
 import { ProductProperty } from '../../../product-property/content-types/product-property/product-property';
+import { PurchaseOption } from '../../../purchase-option/content-types/purchase-option/purchase-option';
 import { ProductVariant_Plain } from '../../../product-variant/content-types/product-variant/product-variant';
 import { ProductProperty_Plain } from '../../../product-property/content-types/product-property/product-property';
+import { PurchaseOption_Plain } from '../../../purchase-option/content-types/purchase-option/purchase-option';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export enum Units {
@@ -42,6 +44,7 @@ export interface Product {
     variant_selection_text?: string;
     unit_property_selection_text?: string;
     product_properties: { data: ProductProperty[] };
+    purchase_options?: { data: PurchaseOption[] };
   };
 }
 export interface Product_Plain {
@@ -69,6 +72,7 @@ export interface Product_Plain {
   variant_selection_text?: string;
   unit_property_selection_text?: string;
   product_properties: ProductProperty_Plain[];
+  purchase_options?: PurchaseOption_Plain[];
 }
 
 export interface Product_NoRelations {
@@ -96,6 +100,7 @@ export interface Product_NoRelations {
   variant_selection_text?: string;
   unit_property_selection_text?: string;
   product_properties: number[];
+  purchase_options?: number[];
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -123,4 +128,5 @@ export interface Product_AdminPanelLifeCycle {
   variant_selection_text?: string;
   unit_property_selection_text?: string;
   product_properties: AdminPanelRelationPropertyModification<ProductProperty_Plain>;
+  purchase_options?: AdminPanelRelationPropertyModification<PurchaseOption_Plain>;
 }

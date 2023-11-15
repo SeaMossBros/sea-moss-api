@@ -119,6 +119,12 @@
       "relation": "oneToMany",
       "target": "api::product-property.product-property",
       "mappedBy": "product"
+    },
+    "purchase_options": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::purchase-option.purchase-option",
+      "inversedBy": "products"
     }
   }
 }

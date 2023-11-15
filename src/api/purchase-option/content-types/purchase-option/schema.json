@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_options",
+  "info": {
+    "singularName": "purchase-option",
+    "pluralName": "purchase-options",
+    "displayName": "Purchase Option"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "recurring",
+        "one_time"
+      ],
+      "default": "recurring",
+      "required": true
+    },
+    "has_discount": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "discount_value": {
+      "type": "decimal",
+      "min": 0
+    },
+    "discount_unit": {
+      "type": "enumeration",
+      "enum": [
+        "fiat",
+        "percentage"
+      ],
+      "default": "percentage"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "purchase_options"
+    }
+  }
+}
