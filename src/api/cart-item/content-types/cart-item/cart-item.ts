@@ -2,35 +2,44 @@
 
 import { Product } from '../../../product/content-types/product/product';
 import { Cart } from '../../../cart/content-types/cart/cart';
+import { Variant } from '../../../../components/cart/interfaces/Variant';
+import { PurchaseOption } from '../../../purchase-option/content-types/purchase-option/purchase-option';
 import { Product_Plain } from '../../../product/content-types/product/product';
 import { Cart_Plain } from '../../../cart/content-types/cart/cart';
+import { Variant_Plain } from '../../../../components/cart/interfaces/Variant';
+import { PurchaseOption_Plain } from '../../../purchase-option/content-types/purchase-option/purchase-option';
+import { Variant_NoRelations } from '../../../../components/cart/interfaces/Variant';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export interface CartItem {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    product?: { data: Product };
-    quantity?: number;
     cart?: { data: Cart };
+    options?: Variant;
+    purchase_option?: { data: PurchaseOption };
   };
 }
 export interface CartItem_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  product?: Product_Plain;
-  quantity?: number;
   cart?: Cart_Plain;
+  options?: Variant_Plain;
+  purchase_option?: PurchaseOption_Plain;
 }
 
 export interface CartItem_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  product?: number;
-  quantity?: number;
   cart?: number;
+  options?: Variant_NoRelations;
+  purchase_option?: number;
 }
 
 export interface CartItem_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  product?: AdminPanelRelationPropertyModification<Product_Plain>;
-  quantity?: number;
   cart?: AdminPanelRelationPropertyModification<Cart_Plain>;
+  options?: Variant_Plain;
+  purchase_option?: AdminPanelRelationPropertyModification<PurchaseOption_Plain>;
 }

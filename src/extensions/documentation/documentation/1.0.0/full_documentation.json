@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-11-15T15:22:03.141Z"
+    "x-generation-date": "2023-11-17T02:57:45.292Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1788,9 +1788,6 @@
                             }
                           }
                         },
-                        "quantity": {
-                          "type": "integer"
-                        },
                         "cart": {
                           "type": "object",
                           "properties": {
@@ -1866,6 +1863,82 @@
                                       }
                                     }
                                   }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "options": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "number"
+                            },
+                            "product_variant": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "number"
+                                    },
+                                    "attributes": {
+                                      "type": "object",
+                                      "properties": {}
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "quantity": {
+                              "type": "integer"
+                            },
+                            "properties": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "product_property": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "attributes": {
+                                            "type": "object",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "quantity": {
+                                    "type": "integer"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "purchase_option": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
                                 }
                               }
                             }
@@ -2006,10 +2079,21 @@
                 ],
                 "example": "string or id"
               },
-              "quantity": {
-                "type": "integer"
-              },
               "cart": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
+              },
+              "options": {
+                "$ref": "#/components/schemas/CartVariantComponent"
+              },
+              "purchase_option": {
                 "oneOf": [
                   {
                     "type": "integer"
@@ -3685,9 +3769,6 @@
               }
             }
           },
-          "quantity": {
-            "type": "integer"
-          },
           "cart": {
             "type": "object",
             "properties": {
@@ -3731,10 +3812,83 @@
                                         }
                                       }
                                     },
-                                    "quantity": {
-                                      "type": "integer"
-                                    },
                                     "cart": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "options": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "product_variant": {
+                                          "type": "object",
+                                          "properties": {
+                                            "data": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "number"
+                                                },
+                                                "attributes": {
+                                                  "type": "object",
+                                                  "properties": {}
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "quantity": {
+                                          "type": "integer"
+                                        },
+                                        "properties": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "product_property": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "quantity": {
+                                                "type": "integer"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "purchase_option": {
                                       "type": "object",
                                       "properties": {
                                         "data": {
@@ -3848,6 +4002,26 @@
               }
             }
           },
+          "options": {
+            "$ref": "#/components/schemas/CartVariantComponent"
+          },
+          "purchase_option": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -3911,6 +4085,65 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "CartVariantComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "product_variant": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "product_property": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "attributes": {
+                          "type": "object",
+                          "properties": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "quantity": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         }
       },

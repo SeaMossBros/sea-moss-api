@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_cart_item_properties",
+  "info": {
+    "displayName": "Cart Item Properties"
+  },
+  "options": {},
+  "attributes": {
+    "product_property": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-property.product-property"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    }
+  }
+}

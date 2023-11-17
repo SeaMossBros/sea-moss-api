@@ -17,14 +17,21 @@
       "relation": "oneToOne",
       "target": "api::product.product"
     },
-    "quantity": {
-      "type": "integer"
-    },
     "cart": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::cart.cart",
       "inversedBy": "cart_items"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cart.variant"
+    },
+    "purchase_option": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purchase-option.purchase-option"
     }
   }
 }

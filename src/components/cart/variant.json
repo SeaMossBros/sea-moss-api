@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_cart_variants",
+  "info": {
+    "displayName": "Cart Item Options",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "product_variant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-variant.product-variant"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "properties": {
+      "displayName": "Cart Item Properties",
+      "type": "component",
+      "repeatable": true,
+      "component": "cart.cart-item-properties"
+    }
+  }
+}
