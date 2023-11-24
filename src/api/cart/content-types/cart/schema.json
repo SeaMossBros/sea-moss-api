@@ -17,6 +17,11 @@
       "relation": "oneToMany",
       "target": "api::cart-item.cart-item",
       "mappedBy": "cart"
+    },
+    "is_checked_out": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

@@ -10,6 +10,11 @@ export enum Type {
 export enum DiscountUnit {
   Fiat = 'fiat',
   Percentage = 'percentage',}
+export enum RecurringInterval {
+  Day = 'day',
+  Week = 'week',
+  Month = 'month',
+  Year = 'year',}
 
 export interface PurchaseOption {
   id: number;
@@ -20,6 +25,8 @@ export interface PurchaseOption {
     discount_value?: number;
     discount_unit?: DiscountUnit;
     products?: { data: Product[] };
+    recurring_interval?: RecurringInterval;
+    recurring_interval_count?: number;
   };
 }
 export interface PurchaseOption_Plain {
@@ -30,6 +37,8 @@ export interface PurchaseOption_Plain {
   discount_value?: number;
   discount_unit?: DiscountUnit;
   products?: Product_Plain[];
+  recurring_interval?: RecurringInterval;
+  recurring_interval_count?: number;
 }
 
 export interface PurchaseOption_NoRelations {
@@ -40,6 +49,8 @@ export interface PurchaseOption_NoRelations {
   discount_value?: number;
   discount_unit?: DiscountUnit;
   products?: number[];
+  recurring_interval?: RecurringInterval;
+  recurring_interval_count?: number;
 }
 
 export interface PurchaseOption_AdminPanelLifeCycle {
@@ -50,4 +61,6 @@ export interface PurchaseOption_AdminPanelLifeCycle {
   discount_value?: number;
   discount_unit?: DiscountUnit;
   products?: AdminPanelRelationPropertyModification<Product_Plain>;
+  recurring_interval?: RecurringInterval;
+  recurring_interval_count?: number;
 }

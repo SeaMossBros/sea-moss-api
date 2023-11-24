@@ -8,19 +8,23 @@ export interface Cart {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    cart_items: { data: CartItem[] };
+    is_checked_out: boolean;
   };
 }
 export interface Cart_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  cart_items: CartItem_Plain[];
+  is_checked_out: boolean;
 }
 
 export interface Cart_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  cart_items: number[];
+  is_checked_out: boolean;
 }
 
 export interface Cart_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  cart_items: AdminPanelRelationPropertyModification<CartItem_Plain>;
+  is_checked_out: boolean;
 }

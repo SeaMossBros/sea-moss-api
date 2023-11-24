@@ -12,23 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "totalCost": {
+    "total": {
       "type": "decimal",
-      "required": false,
+      "required": true,
       "min": 0
     },
-    "totalItems": {
-      "type": "integer",
-      "min": 0
+    "user_email": {
+      "type": "email",
+      "required": false
     },
-    "userName": {
-      "type": "string"
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart"
     },
-    "stripeSessionId": {
-      "type": "string"
+    "payment_session_id": {
+      "type": "uid",
+      "required": true,
+      "private": true
     },
-    "products": {
-      "type": "json"
+    "payment_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "success",
+        "cancelled"
+      ],
+      "default": "pending",
+      "required": true
     }
   }
 }

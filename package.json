@@ -17,6 +17,7 @@
     "better-sqlite3": "8.6.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
+    "date-fns": "^2.30.0",
     "mysql": "^2.18.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -24,6 +25,7 @@
     "sharp": "^0.32.6",
     "strapi-plugin-schemas-to-ts": "^1.1.10",
     "strapi-plugin-slugify": "^2.3.6",
+    "strapi-stripe": "^3.4.1",
     "stripe": "^13.7.0",
     "styled-components": "^5.2.1"
   },

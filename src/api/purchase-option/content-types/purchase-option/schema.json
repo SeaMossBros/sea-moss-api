@@ -4,7 +4,8 @@
   "info": {
     "singularName": "purchase-option",
     "pluralName": "purchase-options",
-    "displayName": "Purchase Option"
+    "displayName": "Purchase Option",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,6 +47,19 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "purchase_options"
+    },
+    "recurring_interval": {
+      "type": "enumeration",
+      "enum": [
+        "day",
+        "week",
+        "month",
+        "year"
+      ]
+    },
+    "recurring_interval_count": {
+      "type": "integer",
+      "min": 1
     }
   }
 }
