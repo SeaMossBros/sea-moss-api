@@ -9,6 +9,10 @@ module.exports = {
           field: 'slug',
           references: 'name',
         },
+        article: {
+          field: 'slug',
+          references: 'title'
+        }
       },
     },
   },

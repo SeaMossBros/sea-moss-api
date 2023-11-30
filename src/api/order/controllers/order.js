@@ -18,7 +18,6 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
      */
     async create(ctx) {
         try {
-            // TODO: Check pending session
             const { data } = ctx.request.body
             console.log('checkout', {
                 data

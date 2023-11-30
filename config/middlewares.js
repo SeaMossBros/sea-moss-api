@@ -8,5 +8,5 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::query',
-'strapi::public'
+  'strapi::public'
 ]
