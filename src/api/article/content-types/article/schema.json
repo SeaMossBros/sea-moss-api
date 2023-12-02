@@ -24,12 +24,13 @@
       "targetField": "title",
       "required": false
     },
-    "cover_image": {
+    "cover": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ]
     },
     "content": {

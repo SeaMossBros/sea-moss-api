@@ -9,7 +9,7 @@ export interface Article {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    title: string;
     introduction?: string;
     slug?: string;
-    cover_image: { data: Media };
+    cover: { data: Media };
     content: any;
   };
 }
@@ -18,7 +18,7 @@ export interface Article_Plain {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title: string;
   introduction?: string;
   slug?: string;
-  cover_image: Media;
+  cover: Media;
   content: any;
 }
 
@@ -27,7 +27,7 @@ export interface Article_NoRelations {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title: string;
   introduction?: string;
   slug?: string;
-  cover_image: number;
+  cover: number;
   content: any;
 }
 
@@ -36,6 +36,6 @@ export interface Article_AdminPanelLifeCycle {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  title: string;
   introduction?: string;
   slug?: string;
-  cover_image: AdminPanelRelationPropertyModification<Media>;
+  cover: AdminPanelRelationPropertyModification<Media>;
   content: any;
 }
