@@ -893,6 +893,36 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
+  info: {
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'Author';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    avatar: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCartCart extends Schema.CollectionType {
   collectionName: 'carts';
   info: {
@@ -1265,6 +1295,7 @@ declare module '@strapi/types' {
       'plugin::strapi-stripe.ss-product': PluginStrapiStripeSsProduct;
       'plugin::strapi-stripe.ss-payment': PluginStrapiStripeSsPayment;
       'api::article.article': ApiArticleArticle;
+      'api::author.author': ApiAuthorAuthor;
       'api::cart.cart': ApiCartCart;
       'api::cart-item.cart-item': ApiCartItemCartItem;
       'api::home-page.home-page': ApiHomePageHomePage;
