@@ -125,6 +125,15 @@
       "relation": "manyToMany",
       "target": "api::purchase-option.purchase-option",
       "inversedBy": "products"
+    },
+    "product_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-review.product-review",
+      "mappedBy": "product"
+    },
+    "rating": {
+      "type": "decimal"
     }
   }
 }

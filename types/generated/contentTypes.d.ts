@@ -1125,6 +1125,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::purchase-option.purchase-option'
     >;
+    product_reviews: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product-review.product-review'
+    >;
+    rating: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1173,6 +1179,53 @@ export interface ApiProductPropertyProductProperty
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::product-property.product-property',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductReviewProductReview extends Schema.CollectionType {
+  collectionName: 'product_reviews';
+  info: {
+    singularName: 'product-review';
+    pluralName: 'product-reviews';
+    displayName: 'Product Review';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    user_email: Attribute.Email & Attribute.Required;
+    rating: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 5;
+      }>;
+    comment: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 2000;
+      }>;
+    product: Attribute.Relation<
+      'api::product-review.product-review',
+      'manyToOne',
+      'api::product.product'
+    >;
+    attachments: Attribute.Media;
+    user_name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-review.product-review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-review.product-review',
       'oneToOne',
       'admin::user'
     > &
@@ -1307,6 +1360,7 @@ declare module '@strapi/types' {
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::product-property.product-property': ApiProductPropertyProductProperty;
+      'api::product-review.product-review': ApiProductReviewProductReview;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::purchase-option.purchase-option': ApiPurchaseOptionPurchaseOption;
     }

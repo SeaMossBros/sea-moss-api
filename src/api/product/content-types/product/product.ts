@@ -4,9 +4,11 @@ import { Media } from '../../../../common/schemas-to-ts/Media';
 import { ProductVariant } from '../../../product-variant/content-types/product-variant/product-variant';
 import { ProductProperty } from '../../../product-property/content-types/product-property/product-property';
 import { PurchaseOption } from '../../../purchase-option/content-types/purchase-option/purchase-option';
+import { ProductReview } from '../../../product-review/content-types/product-review/product-review';
 import { ProductVariant_Plain } from '../../../product-variant/content-types/product-variant/product-variant';
 import { ProductProperty_Plain } from '../../../product-property/content-types/product-property/product-property';
 import { PurchaseOption_Plain } from '../../../purchase-option/content-types/purchase-option/purchase-option';
+import { ProductReview_Plain } from '../../../product-review/content-types/product-review/product-review';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export enum Units {
@@ -45,6 +47,8 @@ export interface Product {
     unit_property_selection_text?: string;
     product_properties: { data: ProductProperty[] };
     purchase_options?: { data: PurchaseOption[] };
+    product_reviews: { data: ProductReview[] };
+    rating?: number;
   };
 }
 export interface Product_Plain {
@@ -73,6 +77,8 @@ export interface Product_Plain {
   unit_property_selection_text?: string;
   product_properties: ProductProperty_Plain[];
   purchase_options?: PurchaseOption_Plain[];
+  product_reviews: ProductReview_Plain[];
+  rating?: number;
 }
 
 export interface Product_NoRelations {
@@ -101,6 +107,8 @@ export interface Product_NoRelations {
   unit_property_selection_text?: string;
   product_properties: number[];
   purchase_options?: number[];
+  product_reviews: number[];
+  rating?: number;
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -129,4 +137,6 @@ export interface Product_AdminPanelLifeCycle {
   unit_property_selection_text?: string;
   product_properties: AdminPanelRelationPropertyModification<ProductProperty_Plain>;
   purchase_options?: AdminPanelRelationPropertyModification<PurchaseOption_Plain>;
+  product_reviews: AdminPanelRelationPropertyModification<ProductReview_Plain>;
+  rating?: number;
 }
