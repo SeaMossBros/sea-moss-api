@@ -23,6 +23,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^5.2.0",
     "sharp": "^0.32.6",
+    "strapi-plugin-fuzzy-search": "^2.2.0",
     "strapi-plugin-schemas-to-ts": "^1.1.10",
     "strapi-plugin-slugify": "^2.3.6",
     "strapi-stripe": "^3.4.1",
