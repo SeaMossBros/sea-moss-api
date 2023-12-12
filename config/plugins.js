@@ -24,7 +24,7 @@ module.exports = {
     config: {
       contentTypes: [
         {
-          uid: "api::author.author",
+          uid: "api::article.article",
           modelName: "article",
           fuzzysortOptions: {
             characterLimit: 500,
@@ -33,15 +33,34 @@ module.exports = {
             keys: [
               {
                 name: "title",
-                weight: 1,
+                weight: 100,
               },
               {
                 name: "introduction",
-                weight: 1,
+                weight: 100,
               },
               {
                 name: 'content',
-                weight: 2
+                weight: 200
+              }
+            ],
+          },
+        },
+        {
+          uid: "api::product.product",
+          modelName: "product",
+          fuzzysortOptions: {
+            characterLimit: 500,
+            threshold: -1000,
+            limit: 15,
+            keys: [
+              {
+                name: "name",
+                weight: 300,
+              },
+              {
+                name: "description",
+                weight: 300,
               }
             ],
           },
