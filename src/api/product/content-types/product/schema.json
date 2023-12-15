@@ -54,6 +54,7 @@
       "enum": [
         "Gel",
         "Dry",
+        "Dummy",
         "Clothing",
         "Accessory"
       ]
@@ -61,16 +62,10 @@
     "certifications": {
       "type": "text"
     },
-    "healthBenefits": {
-      "type": "text"
-    },
-    "ingredients": {
-      "type": "text"
-    },
     "countryOfOrigin": {
       "type": "string"
     },
-    "dimensions": {
+    "packageDimensions": {
       "type": "string"
     },
     "sku": {
@@ -134,6 +129,12 @@
     },
     "rating": {
       "type": "decimal"
+    },
+    "healthBenefits": {
+      "type": "richtext"
+    },
+    "ingredients": {
+      "type": "richtext"
     }
   }
 }

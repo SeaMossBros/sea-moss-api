@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-12-12T14:06:10.300Z"
+    "x-generation-date": "2023-12-15T15:35:13.413Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2773,6 +2773,7 @@
                                       "enum": [
                                         "Gel",
                                         "Dry",
+                                        "Dummy",
                                         "Clothing",
                                         "Accessory"
                                       ]
@@ -2780,16 +2781,10 @@
                                     "certifications": {
                                       "type": "string"
                                     },
-                                    "healthBenefits": {
-                                      "type": "string"
-                                    },
-                                    "ingredients": {
-                                      "type": "string"
-                                    },
                                     "countryOfOrigin": {
                                       "type": "string"
                                     },
-                                    "dimensions": {
+                                    "packageDimensions": {
                                       "type": "string"
                                     },
                                     "sku": {
@@ -3782,6 +3777,12 @@
                                     "rating": {
                                       "type": "number",
                                       "format": "float"
+                                    },
+                                    "healthBenefits": {
+                                      "type": "string"
+                                    },
+                                    "ingredients": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -5011,6 +5012,7 @@
                         "enum": [
                           "Gel",
                           "Dry",
+                          "Dummy",
                           "Clothing",
                           "Accessory"
                         ]
@@ -5018,16 +5020,10 @@
                       "certifications": {
                         "type": "string"
                       },
-                      "healthBenefits": {
-                        "type": "string"
-                      },
-                      "ingredients": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
                         "type": "string"
                       },
-                      "dimensions": {
+                      "packageDimensions": {
                         "type": "string"
                       },
                       "sku": {
@@ -6020,6 +6016,12 @@
                       "rating": {
                         "type": "number",
                         "format": "float"
+                      },
+                      "healthBenefits": {
+                        "type": "string"
+                      },
+                      "ingredients": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -8164,6 +8166,7 @@
                                                   "enum": [
                                                     "Gel",
                                                     "Dry",
+                                                    "Dummy",
                                                     "Clothing",
                                                     "Accessory"
                                                   ]
@@ -8171,16 +8174,10 @@
                                                 "certifications": {
                                                   "type": "string"
                                                 },
-                                                "healthBenefits": {
-                                                  "type": "string"
-                                                },
-                                                "ingredients": {
-                                                  "type": "string"
-                                                },
                                                 "countryOfOrigin": {
                                                   "type": "string"
                                                 },
-                                                "dimensions": {
+                                                "packageDimensions": {
                                                   "type": "string"
                                                 },
                                                 "sku": {
@@ -9174,6 +9171,12 @@
                                                   "type": "number",
                                                   "format": "float"
                                                 },
+                                                "healthBenefits": {
+                                                  "type": "string"
+                                                },
+                                                "ingredients": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -9564,6 +9567,7 @@
                 "enum": [
                   "Gel",
                   "Dry",
+                  "Dummy",
                   "Clothing",
                   "Accessory"
                 ]
@@ -9571,16 +9575,10 @@
               "certifications": {
                 "type": "string"
               },
-              "healthBenefits": {
-                "type": "string"
-              },
-              "ingredients": {
-                "type": "string"
-              },
               "countryOfOrigin": {
                 "type": "string"
               },
-              "dimensions": {
+              "packageDimensions": {
                 "type": "string"
               },
               "sku": {
@@ -9678,6 +9676,12 @@
               "rating": {
                 "type": "number",
                 "format": "float"
+              },
+              "healthBenefits": {
+                "type": "string"
+              },
+              "ingredients": {
+                "type": "string"
               }
             }
           }
@@ -10526,6 +10530,7 @@
             "enum": [
               "Gel",
               "Dry",
+              "Dummy",
               "Clothing",
               "Accessory"
             ]
@@ -10533,16 +10538,10 @@
           "certifications": {
             "type": "string"
           },
-          "healthBenefits": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
           "countryOfOrigin": {
             "type": "string"
           },
-          "dimensions": {
+          "packageDimensions": {
             "type": "string"
           },
           "sku": {
@@ -10903,6 +10902,7 @@
                                       "enum": [
                                         "Gel",
                                         "Dry",
+                                        "Dummy",
                                         "Clothing",
                                         "Accessory"
                                       ]
@@ -10910,16 +10910,10 @@
                                     "certifications": {
                                       "type": "string"
                                     },
-                                    "healthBenefits": {
-                                      "type": "string"
-                                    },
-                                    "ingredients": {
-                                      "type": "string"
-                                    },
                                     "countryOfOrigin": {
                                       "type": "string"
                                     },
-                                    "dimensions": {
+                                    "packageDimensions": {
                                       "type": "string"
                                     },
                                     "sku": {
@@ -11694,6 +11688,12 @@
                                       "type": "number",
                                       "format": "float"
                                     },
+                                    "healthBenefits": {
+                                      "type": "string"
+                                    },
+                                    "ingredients": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -12155,6 +12155,12 @@
           "rating": {
             "type": "number",
             "format": "float"
+          },
+          "healthBenefits": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -13120,6 +13126,7 @@
                         "enum": [
                           "Gel",
                           "Dry",
+                          "Dummy",
                           "Clothing",
                           "Accessory"
                         ]
@@ -13127,16 +13134,10 @@
                       "certifications": {
                         "type": "string"
                       },
-                      "healthBenefits": {
-                        "type": "string"
-                      },
-                      "ingredients": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
                         "type": "string"
                       },
-                      "dimensions": {
+                      "packageDimensions": {
                         "type": "string"
                       },
                       "sku": {
@@ -14129,6 +14130,12 @@
                       "rating": {
                         "type": "number",
                         "format": "float"
+                      },
+                      "healthBenefits": {
+                        "type": "string"
+                      },
+                      "ingredients": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -15315,6 +15322,7 @@
                         "enum": [
                           "Gel",
                           "Dry",
+                          "Dummy",
                           "Clothing",
                           "Accessory"
                         ]
@@ -15322,16 +15330,10 @@
                       "certifications": {
                         "type": "string"
                       },
-                      "healthBenefits": {
-                        "type": "string"
-                      },
-                      "ingredients": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
                         "type": "string"
                       },
-                      "dimensions": {
+                      "packageDimensions": {
                         "type": "string"
                       },
                       "sku": {
@@ -16324,6 +16326,12 @@
                       "rating": {
                         "type": "number",
                         "format": "float"
+                      },
+                      "healthBenefits": {
+                        "type": "string"
+                      },
+                      "ingredients": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -17502,6 +17510,7 @@
                         "enum": [
                           "Gel",
                           "Dry",
+                          "Dummy",
                           "Clothing",
                           "Accessory"
                         ]
@@ -17509,16 +17518,10 @@
                       "certifications": {
                         "type": "string"
                       },
-                      "healthBenefits": {
-                        "type": "string"
-                      },
-                      "ingredients": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
                         "type": "string"
                       },
-                      "dimensions": {
+                      "packageDimensions": {
                         "type": "string"
                       },
                       "sku": {
@@ -18511,6 +18514,12 @@
                       "rating": {
                         "type": "number",
                         "format": "float"
+                      },
+                      "healthBenefits": {
+                        "type": "string"
+                      },
+                      "ingredients": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -19729,6 +19738,7 @@
                           "enum": [
                             "Gel",
                             "Dry",
+                            "Dummy",
                             "Clothing",
                             "Accessory"
                           ]
@@ -19736,16 +19746,10 @@
                         "certifications": {
                           "type": "string"
                         },
-                        "healthBenefits": {
-                          "type": "string"
-                        },
-                        "ingredients": {
-                          "type": "string"
-                        },
                         "countryOfOrigin": {
                           "type": "string"
                         },
-                        "dimensions": {
+                        "packageDimensions": {
                           "type": "string"
                         },
                         "sku": {
@@ -20738,6 +20742,12 @@
                         "rating": {
                           "type": "number",
                           "format": "float"
+                        },
+                        "healthBenefits": {
+                          "type": "string"
+                        },
+                        "ingredients": {
+                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",

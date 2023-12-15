@@ -17,6 +17,7 @@ export enum Units {
 export enum Category {
   Gel = 'Gel',
   Dry = 'Dry',
+  Dummy = 'Dummy',
   Clothing = 'Clothing',
   Accessory = 'Accessory',}
 
@@ -31,10 +32,8 @@ export interface Product {
     units?: Units;
     category?: Category;
     certifications?: string;
-    healthBenefits?: string;
-    ingredients?: string;
     countryOfOrigin?: string;
-    dimensions?: string;
+    packageDimensions?: string;
     sku?: string;
     batchNumber?: string;
     upc?: string;
@@ -49,6 +48,8 @@ export interface Product {
     purchase_options?: { data: PurchaseOption[] };
     product_reviews: { data: ProductReview[] };
     rating?: number;
+    healthBenefits?: string;
+    ingredients?: string;
   };
 }
 export interface Product_Plain {
@@ -61,10 +62,8 @@ export interface Product_Plain {
   units?: Units;
   category?: Category;
   certifications?: string;
-  healthBenefits?: string;
-  ingredients?: string;
   countryOfOrigin?: string;
-  dimensions?: string;
+  packageDimensions?: string;
   sku?: string;
   batchNumber?: string;
   upc?: string;
@@ -79,6 +78,8 @@ export interface Product_Plain {
   purchase_options?: PurchaseOption_Plain[];
   product_reviews: ProductReview_Plain[];
   rating?: number;
+  healthBenefits?: string;
+  ingredients?: string;
 }
 
 export interface Product_NoRelations {
@@ -91,10 +92,8 @@ export interface Product_NoRelations {
   units?: Units;
   category?: Category;
   certifications?: string;
-  healthBenefits?: string;
-  ingredients?: string;
   countryOfOrigin?: string;
-  dimensions?: string;
+  packageDimensions?: string;
   sku?: string;
   batchNumber?: string;
   upc?: string;
@@ -109,6 +108,8 @@ export interface Product_NoRelations {
   purchase_options?: number[];
   product_reviews: number[];
   rating?: number;
+  healthBenefits?: string;
+  ingredients?: string;
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -121,10 +122,8 @@ export interface Product_AdminPanelLifeCycle {
   units?: Units;
   category?: Category;
   certifications?: string;
-  healthBenefits?: string;
-  ingredients?: string;
   countryOfOrigin?: string;
-  dimensions?: string;
+  packageDimensions?: string;
   sku?: string;
   batchNumber?: string;
   upc?: string;
@@ -139,4 +138,6 @@ export interface Product_AdminPanelLifeCycle {
   purchase_options?: AdminPanelRelationPropertyModification<PurchaseOption_Plain>;
   product_reviews: AdminPanelRelationPropertyModification<ProductReview_Plain>;
   rating?: number;
+  healthBenefits?: string;
+  ingredients?: string;
 }
