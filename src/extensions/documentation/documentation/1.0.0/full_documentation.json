@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-12-16T15:38:23.163Z"
+    "x-generation-date": "2023-12-17T13:19:15.260Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1987,9 +1987,6 @@
                                     "name": {
                                       "type": "string"
                                     },
-                                    "description": {
-                                      "type": "string"
-                                    },
                                     "images": {
                                       "type": "object",
                                       "properties": {
@@ -3784,6 +3781,9 @@
                                     "ingredients": {
                                       "type": "string"
                                     },
+                                    "description": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -4224,9 +4224,6 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": "string"
-                      },
-                      "description": {
                         "type": "string"
                       },
                       "images": {
@@ -6023,6 +6020,9 @@
                       "ingredients": {
                         "type": "string"
                       },
+                      "description": {
+                        "type": "string"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -7378,9 +7378,6 @@
                                               "type": "object",
                                               "properties": {
                                                 "name": {
-                                                  "type": "string"
-                                                },
-                                                "description": {
                                                   "type": "string"
                                                 },
                                                 "images": {
@@ -9177,6 +9174,9 @@
                                                 "ingredients": {
                                                   "type": "string"
                                                 },
+                                                "description": {
+                                                  "type": "string"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -9520,9 +9520,6 @@
               "name": {
                 "type": "string"
               },
-              "description": {
-                "type": "string"
-              },
               "images": {
                 "type": "array",
                 "items": {
@@ -9682,6 +9679,9 @@
               },
               "ingredients": {
                 "type": "string"
+              },
+              "description": {
+                "type": "string"
               }
             }
           }
@@ -9742,9 +9742,6 @@
         ],
         "properties": {
           "name": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "images": {
@@ -10597,9 +10594,6 @@
                                   "type": "object",
                                   "properties": {
                                     "name": {
-                                      "type": "string"
-                                    },
-                                    "description": {
                                       "type": "string"
                                     },
                                     "images": {
@@ -11694,6 +11688,9 @@
                                     "ingredients": {
                                       "type": "string"
                                     },
+                                    "description": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -12162,6 +12159,9 @@
           "ingredients": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -12338,9 +12338,6 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": "string"
-                      },
-                      "description": {
                         "type": "string"
                       },
                       "images": {
@@ -14135,6 +14132,9 @@
                         "type": "string"
                       },
                       "ingredients": {
+                        "type": "string"
+                      },
+                      "description": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -14536,9 +14536,6 @@
                       "name": {
                         "type": "string"
                       },
-                      "description": {
-                        "type": "string"
-                      },
                       "images": {
                         "type": "object",
                         "properties": {
@@ -16331,6 +16328,9 @@
                         "type": "string"
                       },
                       "ingredients": {
+                        "type": "string"
+                      },
+                      "description": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -16724,9 +16724,6 @@
                       "name": {
                         "type": "string"
                       },
-                      "description": {
-                        "type": "string"
-                      },
                       "images": {
                         "type": "object",
                         "properties": {
@@ -18519,6 +18516,9 @@
                         "type": "string"
                       },
                       "ingredients": {
+                        "type": "string"
+                      },
+                      "description": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -18950,9 +18950,6 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": "string"
-                        },
-                        "description": {
                           "type": "string"
                         },
                         "images": {
@@ -20747,6 +20744,9 @@
                           "type": "string"
                         },
                         "ingredients": {
+                          "type": "string"
+                        },
+                        "description": {
                           "type": "string"
                         },
                         "createdAt": {

@@ -17,9 +17,6 @@
       "required": true,
       "minLength": 1
     },
-    "description": {
-      "type": "text"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -134,6 +131,9 @@
       "type": "richtext"
     },
     "ingredients": {
+      "type": "richtext"
+    },
+    "description": {
       "type": "richtext"
     }
   }

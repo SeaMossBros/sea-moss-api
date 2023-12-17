@@ -25,7 +25,6 @@ export interface Product {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    name: string;
-    description?: string;
     images: { data: Media[] };
     videos?: { data: Media[] };
     weight?: number;
@@ -50,12 +49,12 @@ export interface Product {
     rating?: number;
     healthBenefits?: string;
     ingredients?: string;
+    description?: string;
   };
 }
 export interface Product_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
-  description?: string;
   images: Media[];
   videos?: Media[];
   weight?: number;
@@ -80,12 +79,12 @@ export interface Product_Plain {
   rating?: number;
   healthBenefits?: string;
   ingredients?: string;
+  description?: string;
 }
 
 export interface Product_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
-  description?: string;
   images: number[];
   videos?: number[];
   weight?: number;
@@ -110,12 +109,12 @@ export interface Product_NoRelations {
   rating?: number;
   healthBenefits?: string;
   ingredients?: string;
+  description?: string;
 }
 
 export interface Product_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
-  description?: string;
   images: AdminPanelRelationPropertyModification<Media>[];
   videos?: AdminPanelRelationPropertyModification<Media>[];
   weight?: number;
@@ -140,4 +139,5 @@ export interface Product_AdminPanelLifeCycle {
   rating?: number;
   healthBenefits?: string;
   ingredients?: string;
+  description?: string;
 }

@@ -991,7 +991,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 1;
       }>;
-    description: Attribute.Text;
     images: Attribute.Media & Attribute.Required;
     videos: Attribute.Media;
     weight: Attribute.Decimal;
@@ -1035,6 +1034,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     rating: Attribute.Decimal;
     healthBenefits: Attribute.RichText;
     ingredients: Attribute.RichText;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
