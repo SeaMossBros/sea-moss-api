@@ -51,7 +51,6 @@
       "enum": [
         "Gel",
         "Dry",
-        "Dummy",
         "Clothing",
         "Accessory"
       ]

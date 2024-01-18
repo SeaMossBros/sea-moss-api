@@ -17,7 +17,6 @@ export enum Units {
 export enum Category {
   Gel = 'Gel',
   Dry = 'Dry',
-  Dummy = 'Dummy',
   Clothing = 'Clothing',
   Accessory = 'Accessory',}
 

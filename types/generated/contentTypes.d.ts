@@ -995,9 +995,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     videos: Attribute.Media;
     weight: Attribute.Decimal;
     units: Attribute.Enumeration<['oz', 'Fl oz']>;
-    category: Attribute.Enumeration<
-      ['Gel', 'Dry', 'Dummy', 'Clothing', 'Accessory']
-    >;
+    category: Attribute.Enumeration<['Gel', 'Dry', 'Clothing', 'Accessory']>;
     certifications: Attribute.Text;
     countryOfOrigin: Attribute.String;
     packageDimensions: Attribute.String;
