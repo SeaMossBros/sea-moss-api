@@ -50,7 +50,8 @@
       "type": "enumeration",
       "enum": [
         "Gel",
-        "Dry",
+        "Dried",
+        "Gummies",
         "Clothing",
         "Accessory"
       ]
@@ -134,6 +135,9 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "count": {
+      "type": "integer"
     }
   }
 }

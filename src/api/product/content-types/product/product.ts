@@ -16,7 +16,8 @@ export enum Units {
   FlOz = 'Fl oz',}
 export enum Category {
   Gel = 'Gel',
-  Dry = 'Dry',
+  Dried = 'Dried',
+  Gummies = 'Gummies',
   Clothing = 'Clothing',
   Accessory = 'Accessory',}
 
@@ -49,6 +50,7 @@ export interface Product {
     healthBenefits?: string;
     ingredients?: string;
     description?: string;
+    count?: number;
   };
 }
 export interface Product_Plain {
@@ -79,6 +81,7 @@ export interface Product_Plain {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
+  count?: number;
 }
 
 export interface Product_NoRelations {
@@ -109,6 +112,7 @@ export interface Product_NoRelations {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
+  count?: number;
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -139,4 +143,5 @@ export interface Product_AdminPanelLifeCycle {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
+  count?: number;
 }

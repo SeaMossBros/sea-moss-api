@@ -995,7 +995,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
     videos: Attribute.Media;
     weight: Attribute.Decimal;
     units: Attribute.Enumeration<['oz', 'Fl oz']>;
-    category: Attribute.Enumeration<['Gel', 'Dry', 'Clothing', 'Accessory']>;
+    category: Attribute.Enumeration<
+      ['Gel', 'Dried', 'Gummies', 'Clothing', 'Accessory']
+    >;
     certifications: Attribute.Text;
     countryOfOrigin: Attribute.String;
     packageDimensions: Attribute.String;
@@ -1033,6 +1035,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     healthBenefits: Attribute.RichText;
     ingredients: Attribute.RichText;
     description: Attribute.RichText;
+    count: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1235,6 +1238,36 @@ export interface ApiPurchaseOptionPurchaseOption extends Schema.CollectionType {
   };
 }
 
+export interface ApiSupportPageSupportPage extends Schema.SingleType {
+  collectionName: 'support_pages';
+  info: {
+    singularName: 'support-page';
+    pluralName: 'support-pages';
+    displayName: 'Support Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero_images: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::support-page.support-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::support-page.support-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1264,6 +1297,7 @@ declare module '@strapi/types' {
       'api::product-review.product-review': ApiProductReviewProductReview;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::purchase-option.purchase-option': ApiPurchaseOptionPurchaseOption;
+      'api::support-page.support-page': ApiSupportPageSupportPage;
     }
   }
 }
