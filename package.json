@@ -25,6 +25,7 @@
     "sharp": "^0.32.6",
     "strapi-google-auth": "^0.2.1",
     "strapi-plugin-fuzzy-search": "^2.2.0",
+    "strapi-plugin-import-export-entries": "^1.23.1",
     "strapi-plugin-schemas-to-ts": "^1.1.10",
     "strapi-plugin-slugify": "^2.3.6",
     "stripe": "^13.7.0",
