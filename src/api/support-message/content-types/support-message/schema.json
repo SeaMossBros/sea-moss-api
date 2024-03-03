@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "support_messages",
+  "info": {
+    "singularName": "support-message",
+    "pluralName": "support-messages",
+    "displayName": "Support Message"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    }
+  }
+}

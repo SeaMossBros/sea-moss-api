@@ -1238,6 +1238,39 @@ export interface ApiPurchaseOptionPurchaseOption extends Schema.CollectionType {
   };
 }
 
+export interface ApiSupportMessageSupportMessage extends Schema.CollectionType {
+  collectionName: 'support_messages';
+  info: {
+    singularName: 'support-message';
+    pluralName: 'support-messages';
+    displayName: 'Support Message';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    subject: Attribute.String;
+    body: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::support-message.support-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::support-message.support-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSupportPageSupportPage extends Schema.SingleType {
   collectionName: 'support_pages';
   info: {
@@ -1297,6 +1330,7 @@ declare module '@strapi/types' {
       'api::product-review.product-review': ApiProductReviewProductReview;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::purchase-option.purchase-option': ApiPurchaseOptionPurchaseOption;
+      'api::support-message.support-message': ApiSupportMessageSupportMessage;
       'api::support-page.support-page': ApiSupportPageSupportPage;
     }
   }

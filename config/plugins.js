@@ -16,6 +16,9 @@ module.exports = {
       },
     },
   },
+  'import-export-entries': {
+    enabled: true,
+  },
   'schemas-to-ts': {
     enabled: true,
   },
