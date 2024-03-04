@@ -77,7 +77,7 @@ module.exports = {
             existingUser = { ...existingUser, password }
           }
 
-          console.log('existingUser', existingUser);
+          // console.log('existingUser', existingUser);
 
           responseData.order = updatedOrder
           strapi.entityService.update('api::cart.cart', order.cart.id, {
