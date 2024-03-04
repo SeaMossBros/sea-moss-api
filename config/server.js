@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
-  url: env('SERVER_URL', 'https://balanced-creativity-f2f8470846.strapiapp.com'), 
+  // url: env('SERVER_URL', 'http://0.0.0.0:1337'), 
   app: {
     keys: env.array('APP_KEYS'),
   },
