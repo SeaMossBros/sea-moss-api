@@ -70,11 +70,11 @@ const updateProductRatingAfterDelete = async (productId, state) => {
  * @param {number[]} newRatings 
  */
 const updateProductRatingAfterUpdate = async (productId, prevRatings, newRatings) => {
-  console.log({
-    productId,
-    prevRatings,
-    newRatings
-  })
+  // console.log({
+  //   productId,
+  //   prevRatings,
+  //   newRatings
+  // })
 
   const [reviewsCount, product] = await Promise.all([
     strapi.entityService.count('api::product-review.product-review', {

@@ -19,9 +19,9 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     async create(ctx) {
         try {
             const { data } = ctx.request.body
-            console.log('checkout', {
-                data
-            })
+            // console.log('checkout', {
+            //     data
+            // })
 
             const existingOrders = await strapi.entityService.findMany('api::order.order', {
                 filters: {
