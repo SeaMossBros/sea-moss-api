@@ -6,7 +6,7 @@ const Stripe = require("stripe").default;
 
 /**
  * order controller
- */
+*/
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
@@ -19,9 +19,6 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     async create(ctx) {
         try {
             const { data } = ctx.request.body
-            // console.log('checkout', {
-            //     data
-            // })
 
             const existingOrders = await strapi.entityService.findMany('api::order.order', {
                 filters: {
@@ -124,7 +121,19 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 success_url: `${ process.env.FRONTEND_ORIGIN }/payments/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${ process.env.FRONTEND_ORIGIN }/payments/cancel?session_id={CHECKOUT_SESSION_ID}`,
                 expires_at: Math.round(addMinutes(new Date(), 30).getTime() / 1000), // to Unix timestamp, 30 minutes after check-out
-                customer_creation: mode === 'payment' ? 'always' : undefined
+                customer_creation: mode === 'payment' ? 'always' : undefined,
+                customer_email: data.email && data.email.length ? data.email : undefined,
+                custom_fields: [
+                    {
+                        key: 'customers_shopping_experience_kjha09823sdiwyi2u0422',
+                        label: {
+                            type: 'custom',
+                            custom: 'Tell Us About Your Shopping Experience',
+                        },
+                        type: 'text',
+                        optional: true,
+                    },
+                ]
             })
 
             const total = session.amount_total / 100
