@@ -11,7 +11,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:3000', 'https://seathemoss.com', 'https://www.seathemoss.com'],
+      origin: ['https://balanced-creativity-f2f8470846.strapiapp.com', 'https://seathemoss.com', 'https://www.seathemoss.com'],
       headers: '*', // Which headers are allowed
     },
   },
