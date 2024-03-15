@@ -1,4 +1,16 @@
+const fs = require('fs');
+const dkimPrivateKey = fs.existsSync('./new-dkim-private.pem') ? fs.readFileSync('./new-dkim-private.pem', 'utf8') : null;
+const dkim = dkimPrivateKey ? { privateKey: dkimPrivateKey, keySelector: 'newkey._domainkey.seathemoss.com' } : false;
+
 module.exports = {
+  email: {
+    provider: 'sendmail',
+    providerOptions: { dkim },
+    settings: {
+      defaultFrom: 'support@seathemoss.com',
+      defaultReplyTo: 'support@seathemoss.com',
+    },
+  },
   slugify: {
     enabled: true,
     slugifyWithCount: true,
