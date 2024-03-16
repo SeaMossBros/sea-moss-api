@@ -10,6 +10,12 @@ module.exports = {
       defaultFrom: 'support@seathemoss.com',
       defaultReplyTo: 'support@seathemoss.com',
     },
+    config: {
+      settings: {
+        defaultFrom: 'support@seathemoss.com',
+        defaultReplyTo: 'support@seathemoss.com',
+      }
+    }
   },
   slugify: {
     enabled: true,
