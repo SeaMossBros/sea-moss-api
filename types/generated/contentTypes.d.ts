@@ -956,6 +956,10 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     payment_status: Attribute.Enumeration<['pending', 'success', 'cancelled']> &
       Attribute.Required &
       Attribute.DefaultTo<'pending'>;
+    shipping_address: Attribute.String;
+    tracking_url_provider: Attribute.String;
+    label_url: Attribute.String;
+    customer_experience: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -993,16 +997,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
       }>;
     images: Attribute.Media & Attribute.Required;
     videos: Attribute.Media;
-    weight: Attribute.Decimal;
-    units: Attribute.Enumeration<['oz', 'Fl oz']>;
     category: Attribute.Enumeration<
       ['Gel', 'Dried', 'Gummies', 'Clothing', 'Accessory']
     >;
-    certifications: Attribute.Text;
     countryOfOrigin: Attribute.String;
-    packageDimensions: Attribute.String;
-    sku: Attribute.String;
-    batchNumber: Attribute.String;
     upc: Attribute.String;
     expirationDate: Attribute.Date;
     tipsForStorage: Attribute.Text;
@@ -1035,7 +1033,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     healthBenefits: Attribute.RichText;
     ingredients: Attribute.RichText;
     description: Attribute.RichText;
-    count: Attribute.Integer;
+    certifications: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1169,6 +1167,11 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
       }> &
       Attribute.DefaultTo<1>;
     image: Attribute.Media;
+    weight: Attribute.Decimal;
+    weight_unit: Attribute.Enumeration<['oz', 'fl oz']>;
+    sku: Attribute.Enumeration<['SM-DRY-2-OZ', 'SM-DRY-4-OZ', 'SM-DRY-8-OZ']>;
+    package_dimensions_unit: Attribute.Enumeration<['in', 'cm', 'ft']>;
+    package_dimensions: Attribute.Enumeration<['W8xL12xH4', 'W8xL12xH8']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -108,7 +108,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                             interval: item.purchase_option.recurring_interval ?? 'month',
                             interval_count: item.purchase_option.recurring_interval_count
                         } : undefined,
-                        unit_amount_decimal: (unit_amount * 100).toFixed(2)
+                        unit_amount_decimal: (unit_amount * 100).toFixed(2),
+                        tax_behavior: "exclusive",
                     },
                     quantity: item.options.quantity
                 }
@@ -118,6 +119,12 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                 mode,
                 client_reference_id: data.cartId,
                 line_items,
+                automatic_tax: {
+                    enabled: true,
+                },
+                shipping_address_collection: {
+                    allowed_countries: ['US'],
+                },
                 success_url: `${ process.env.FRONTEND_ORIGIN }/payments/success?session_id={CHECKOUT_SESSION_ID}`,
                 cancel_url: `${ process.env.FRONTEND_ORIGIN }/payments/cancel?session_id={CHECKOUT_SESSION_ID}`,
                 expires_at: Math.round(addMinutes(new Date(), 30).getTime() / 1000), // to Unix timestamp, 30 minutes after check-out

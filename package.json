@@ -24,6 +24,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^5.2.0",
     "sharp": "^0.32.6",
+    "shippo": "^1.7.1",
     "strapi-google-auth": "^0.2.1",
     "strapi-plugin-fuzzy-search": "^2.2.0",
     "strapi-plugin-import-export-entries": "^1.23.1",
@@ -42,5 +43,8 @@
     "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/shippo": "^1.7.7"
+  }
 }

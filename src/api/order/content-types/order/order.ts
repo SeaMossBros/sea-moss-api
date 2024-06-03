@@ -17,6 +17,10 @@ export interface Order {
     cart?: { data: Cart };
     payment_session_id: string;
     payment_status: PaymentStatus;
+    shipping_address?: string;
+    tracking_url_provider?: string;
+    label_url?: string;
+    customer_experience?: string;
   };
 }
 export interface Order_Plain {
@@ -26,6 +30,10 @@ export interface Order_Plain {
   cart?: Cart_Plain;
   payment_session_id: string;
   payment_status: PaymentStatus;
+  shipping_address?: string;
+  tracking_url_provider?: string;
+  label_url?: string;
+  customer_experience?: string;
 }
 
 export interface Order_NoRelations {
@@ -35,6 +43,10 @@ export interface Order_NoRelations {
   cart?: number;
   payment_session_id: string;
   payment_status: PaymentStatus;
+  shipping_address?: string;
+  tracking_url_provider?: string;
+  label_url?: string;
+  customer_experience?: string;
 }
 
 export interface Order_AdminPanelLifeCycle {
@@ -44,4 +56,8 @@ export interface Order_AdminPanelLifeCycle {
   cart?: AdminPanelRelationPropertyModification<Cart_Plain>;
   payment_session_id: string;
   payment_status: PaymentStatus;
+  shipping_address?: string;
+  tracking_url_provider?: string;
+  label_url?: string;
+  customer_experience?: string;
 }

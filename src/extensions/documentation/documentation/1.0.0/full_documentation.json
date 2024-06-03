@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-03T23:56:22.373Z"
+    "x-generation-date": "2024-06-03T00:24:58.465Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2754,17 +2754,6 @@
                                         }
                                       }
                                     },
-                                    "weight": {
-                                      "type": "number",
-                                      "format": "float"
-                                    },
-                                    "units": {
-                                      "type": "string",
-                                      "enum": [
-                                        "oz",
-                                        "Fl oz"
-                                      ]
-                                    },
                                     "category": {
                                       "type": "string",
                                       "enum": [
@@ -2775,19 +2764,7 @@
                                         "Accessory"
                                       ]
                                     },
-                                    "certifications": {
-                                      "type": "string"
-                                    },
                                     "countryOfOrigin": {
-                                      "type": "string"
-                                    },
-                                    "packageDimensions": {
-                                      "type": "string"
-                                    },
-                                    "sku": {
-                                      "type": "string"
-                                    },
-                                    "batchNumber": {
                                       "type": "string"
                                     },
                                     "upc": {
@@ -2988,6 +2965,40 @@
                                                         }
                                                       }
                                                     }
+                                                  },
+                                                  "weight": {
+                                                    "type": "number",
+                                                    "format": "float"
+                                                  },
+                                                  "weight_unit": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "oz",
+                                                      "fl oz"
+                                                    ]
+                                                  },
+                                                  "sku": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "SM-DRY-2-OZ",
+                                                      "SM-DRY-4-OZ",
+                                                      "SM-DRY-8-OZ"
+                                                    ]
+                                                  },
+                                                  "package_dimensions_unit": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "in",
+                                                      "cm",
+                                                      "ft"
+                                                    ]
+                                                  },
+                                                  "package_dimensions": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "W8xL12xH4",
+                                                      "W8xL12xH8"
+                                                    ]
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -3784,8 +3795,8 @@
                                     "description": {
                                       "type": "string"
                                     },
-                                    "count": {
-                                      "type": "integer"
+                                    "certifications": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -4996,17 +5007,6 @@
                           }
                         }
                       },
-                      "weight": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "units": {
-                        "type": "string",
-                        "enum": [
-                          "oz",
-                          "Fl oz"
-                        ]
-                      },
                       "category": {
                         "type": "string",
                         "enum": [
@@ -5017,19 +5017,7 @@
                           "Accessory"
                         ]
                       },
-                      "certifications": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
-                        "type": "string"
-                      },
-                      "packageDimensions": {
-                        "type": "string"
-                      },
-                      "sku": {
-                        "type": "string"
-                      },
-                      "batchNumber": {
                         "type": "string"
                       },
                       "upc": {
@@ -5230,6 +5218,40 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "weight": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "weight_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "oz",
+                                        "fl oz"
+                                      ]
+                                    },
+                                    "sku": {
+                                      "type": "string",
+                                      "enum": [
+                                        "SM-DRY-2-OZ",
+                                        "SM-DRY-4-OZ",
+                                        "SM-DRY-8-OZ"
+                                      ]
+                                    },
+                                    "package_dimensions_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "in",
+                                        "cm",
+                                        "ft"
+                                      ]
+                                    },
+                                    "package_dimensions": {
+                                      "type": "string",
+                                      "enum": [
+                                        "W8xL12xH4",
+                                        "W8xL12xH8"
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -6026,8 +6048,8 @@
                       "description": {
                         "type": "string"
                       },
-                      "count": {
-                        "type": "integer"
+                      "certifications": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -7278,6 +7300,18 @@
                   "success",
                   "cancelled"
                 ]
+              },
+              "shipping_address": {
+                "type": "string"
+              },
+              "tracking_url_provider": {
+                "type": "string"
+              },
+              "label_url": {
+                "type": "string"
+              },
+              "customer_experience": {
+                "type": "string"
               }
             }
           }
@@ -8153,17 +8187,6 @@
                                                     }
                                                   }
                                                 },
-                                                "weight": {
-                                                  "type": "number",
-                                                  "format": "float"
-                                                },
-                                                "units": {
-                                                  "type": "string",
-                                                  "enum": [
-                                                    "oz",
-                                                    "Fl oz"
-                                                  ]
-                                                },
                                                 "category": {
                                                   "type": "string",
                                                   "enum": [
@@ -8174,19 +8197,7 @@
                                                     "Accessory"
                                                   ]
                                                 },
-                                                "certifications": {
-                                                  "type": "string"
-                                                },
                                                 "countryOfOrigin": {
-                                                  "type": "string"
-                                                },
-                                                "packageDimensions": {
-                                                  "type": "string"
-                                                },
-                                                "sku": {
-                                                  "type": "string"
-                                                },
-                                                "batchNumber": {
                                                   "type": "string"
                                                 },
                                                 "upc": {
@@ -8387,6 +8398,40 @@
                                                                     }
                                                                   }
                                                                 }
+                                                              },
+                                                              "weight": {
+                                                                "type": "number",
+                                                                "format": "float"
+                                                              },
+                                                              "weight_unit": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "oz",
+                                                                  "fl oz"
+                                                                ]
+                                                              },
+                                                              "sku": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "SM-DRY-2-OZ",
+                                                                  "SM-DRY-4-OZ",
+                                                                  "SM-DRY-8-OZ"
+                                                                ]
+                                                              },
+                                                              "package_dimensions_unit": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "in",
+                                                                  "cm",
+                                                                  "ft"
+                                                                ]
+                                                              },
+                                                              "package_dimensions": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "W8xL12xH4",
+                                                                  "W8xL12xH8"
+                                                                ]
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -9183,8 +9228,8 @@
                                                 "description": {
                                                   "type": "string"
                                                 },
-                                                "count": {
-                                                  "type": "integer"
+                                                "certifications": {
+                                                  "type": "string"
                                                 },
                                                 "createdAt": {
                                                   "type": "string",
@@ -9442,6 +9487,18 @@
               "cancelled"
             ]
           },
+          "shipping_address": {
+            "type": "string"
+          },
+          "tracking_url_provider": {
+            "type": "string"
+          },
+          "label_url": {
+            "type": "string"
+          },
+          "customer_experience": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -9557,17 +9614,6 @@
                   "example": "string or id"
                 }
               },
-              "weight": {
-                "type": "number",
-                "format": "float"
-              },
-              "units": {
-                "type": "string",
-                "enum": [
-                  "oz",
-                  "Fl oz"
-                ]
-              },
               "category": {
                 "type": "string",
                 "enum": [
@@ -9578,19 +9624,7 @@
                   "Accessory"
                 ]
               },
-              "certifications": {
-                "type": "string"
-              },
               "countryOfOrigin": {
-                "type": "string"
-              },
-              "packageDimensions": {
-                "type": "string"
-              },
-              "sku": {
-                "type": "string"
-              },
-              "batchNumber": {
                 "type": "string"
               },
               "upc": {
@@ -9692,8 +9726,8 @@
               "description": {
                 "type": "string"
               },
-              "count": {
-                "type": "integer"
+              "certifications": {
+                "type": "string"
               }
             }
           }
@@ -10523,17 +10557,6 @@
               }
             }
           },
-          "weight": {
-            "type": "number",
-            "format": "float"
-          },
-          "units": {
-            "type": "string",
-            "enum": [
-              "oz",
-              "Fl oz"
-            ]
-          },
           "category": {
             "type": "string",
             "enum": [
@@ -10544,19 +10567,7 @@
               "Accessory"
             ]
           },
-          "certifications": {
-            "type": "string"
-          },
           "countryOfOrigin": {
-            "type": "string"
-          },
-          "packageDimensions": {
-            "type": "string"
-          },
-          "sku": {
-            "type": "string"
-          },
-          "batchNumber": {
             "type": "string"
           },
           "upc": {
@@ -10892,17 +10903,6 @@
                                         }
                                       }
                                     },
-                                    "weight": {
-                                      "type": "number",
-                                      "format": "float"
-                                    },
-                                    "units": {
-                                      "type": "string",
-                                      "enum": [
-                                        "oz",
-                                        "Fl oz"
-                                      ]
-                                    },
                                     "category": {
                                       "type": "string",
                                       "enum": [
@@ -10913,19 +10913,7 @@
                                         "Accessory"
                                       ]
                                     },
-                                    "certifications": {
-                                      "type": "string"
-                                    },
                                     "countryOfOrigin": {
-                                      "type": "string"
-                                    },
-                                    "packageDimensions": {
-                                      "type": "string"
-                                    },
-                                    "sku": {
-                                      "type": "string"
-                                    },
-                                    "batchNumber": {
                                       "type": "string"
                                     },
                                     "upc": {
@@ -11703,8 +11691,8 @@
                                     "description": {
                                       "type": "string"
                                     },
-                                    "count": {
-                                      "type": "integer"
+                                    "certifications": {
+                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -11905,6 +11893,40 @@
                               }
                             }
                           }
+                        },
+                        "weight": {
+                          "type": "number",
+                          "format": "float"
+                        },
+                        "weight_unit": {
+                          "type": "string",
+                          "enum": [
+                            "oz",
+                            "fl oz"
+                          ]
+                        },
+                        "sku": {
+                          "type": "string",
+                          "enum": [
+                            "SM-DRY-2-OZ",
+                            "SM-DRY-4-OZ",
+                            "SM-DRY-8-OZ"
+                          ]
+                        },
+                        "package_dimensions_unit": {
+                          "type": "string",
+                          "enum": [
+                            "in",
+                            "cm",
+                            "ft"
+                          ]
+                        },
+                        "package_dimensions": {
+                          "type": "string",
+                          "enum": [
+                            "W8xL12xH4",
+                            "W8xL12xH8"
+                          ]
                         },
                         "createdAt": {
                           "type": "string",
@@ -12177,8 +12199,8 @@
           "description": {
             "type": "string"
           },
-          "count": {
-            "type": "integer"
+          "certifications": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -13125,17 +13147,6 @@
                           }
                         }
                       },
-                      "weight": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "units": {
-                        "type": "string",
-                        "enum": [
-                          "oz",
-                          "Fl oz"
-                        ]
-                      },
                       "category": {
                         "type": "string",
                         "enum": [
@@ -13146,19 +13157,7 @@
                           "Accessory"
                         ]
                       },
-                      "certifications": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
-                        "type": "string"
-                      },
-                      "packageDimensions": {
-                        "type": "string"
-                      },
-                      "sku": {
-                        "type": "string"
-                      },
-                      "batchNumber": {
                         "type": "string"
                       },
                       "upc": {
@@ -13359,6 +13358,40 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "weight": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "weight_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "oz",
+                                        "fl oz"
+                                      ]
+                                    },
+                                    "sku": {
+                                      "type": "string",
+                                      "enum": [
+                                        "SM-DRY-2-OZ",
+                                        "SM-DRY-4-OZ",
+                                        "SM-DRY-8-OZ"
+                                      ]
+                                    },
+                                    "package_dimensions_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "in",
+                                        "cm",
+                                        "ft"
+                                      ]
+                                    },
+                                    "package_dimensions": {
+                                      "type": "string",
+                                      "enum": [
+                                        "W8xL12xH4",
+                                        "W8xL12xH8"
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -14155,8 +14188,8 @@
                       "description": {
                         "type": "string"
                       },
-                      "count": {
-                        "type": "integer"
+                      "certifications": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -15324,17 +15357,6 @@
                           }
                         }
                       },
-                      "weight": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "units": {
-                        "type": "string",
-                        "enum": [
-                          "oz",
-                          "Fl oz"
-                        ]
-                      },
                       "category": {
                         "type": "string",
                         "enum": [
@@ -15345,19 +15367,7 @@
                           "Accessory"
                         ]
                       },
-                      "certifications": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
-                        "type": "string"
-                      },
-                      "packageDimensions": {
-                        "type": "string"
-                      },
-                      "sku": {
-                        "type": "string"
-                      },
-                      "batchNumber": {
                         "type": "string"
                       },
                       "upc": {
@@ -15558,6 +15568,40 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "weight": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "weight_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "oz",
+                                        "fl oz"
+                                      ]
+                                    },
+                                    "sku": {
+                                      "type": "string",
+                                      "enum": [
+                                        "SM-DRY-2-OZ",
+                                        "SM-DRY-4-OZ",
+                                        "SM-DRY-8-OZ"
+                                      ]
+                                    },
+                                    "package_dimensions_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "in",
+                                        "cm",
+                                        "ft"
+                                      ]
+                                    },
+                                    "package_dimensions": {
+                                      "type": "string",
+                                      "enum": [
+                                        "W8xL12xH4",
+                                        "W8xL12xH8"
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -16354,8 +16398,8 @@
                       "description": {
                         "type": "string"
                       },
-                      "count": {
-                        "type": "integer"
+                      "certifications": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -16669,6 +16713,40 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "weight": {
+                "type": "number",
+                "format": "float"
+              },
+              "weight_unit": {
+                "type": "string",
+                "enum": [
+                  "oz",
+                  "fl oz"
+                ]
+              },
+              "sku": {
+                "type": "string",
+                "enum": [
+                  "SM-DRY-2-OZ",
+                  "SM-DRY-4-OZ",
+                  "SM-DRY-8-OZ"
+                ]
+              },
+              "package_dimensions_unit": {
+                "type": "string",
+                "enum": [
+                  "in",
+                  "cm",
+                  "ft"
+                ]
+              },
+              "package_dimensions": {
+                "type": "string",
+                "enum": [
+                  "W8xL12xH4",
+                  "W8xL12xH8"
+                ]
               }
             }
           }
@@ -17515,17 +17593,6 @@
                           }
                         }
                       },
-                      "weight": {
-                        "type": "number",
-                        "format": "float"
-                      },
-                      "units": {
-                        "type": "string",
-                        "enum": [
-                          "oz",
-                          "Fl oz"
-                        ]
-                      },
                       "category": {
                         "type": "string",
                         "enum": [
@@ -17536,19 +17603,7 @@
                           "Accessory"
                         ]
                       },
-                      "certifications": {
-                        "type": "string"
-                      },
                       "countryOfOrigin": {
-                        "type": "string"
-                      },
-                      "packageDimensions": {
-                        "type": "string"
-                      },
-                      "sku": {
-                        "type": "string"
-                      },
-                      "batchNumber": {
                         "type": "string"
                       },
                       "upc": {
@@ -17749,6 +17804,40 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "weight": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "weight_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "oz",
+                                        "fl oz"
+                                      ]
+                                    },
+                                    "sku": {
+                                      "type": "string",
+                                      "enum": [
+                                        "SM-DRY-2-OZ",
+                                        "SM-DRY-4-OZ",
+                                        "SM-DRY-8-OZ"
+                                      ]
+                                    },
+                                    "package_dimensions_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "in",
+                                        "cm",
+                                        "ft"
+                                      ]
+                                    },
+                                    "package_dimensions": {
+                                      "type": "string",
+                                      "enum": [
+                                        "W8xL12xH4",
+                                        "W8xL12xH8"
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -18545,8 +18634,8 @@
                       "description": {
                         "type": "string"
                       },
-                      "count": {
-                        "type": "integer"
+                      "certifications": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -18747,6 +18836,40 @@
                 }
               }
             }
+          },
+          "weight": {
+            "type": "number",
+            "format": "float"
+          },
+          "weight_unit": {
+            "type": "string",
+            "enum": [
+              "oz",
+              "fl oz"
+            ]
+          },
+          "sku": {
+            "type": "string",
+            "enum": [
+              "SM-DRY-2-OZ",
+              "SM-DRY-4-OZ",
+              "SM-DRY-8-OZ"
+            ]
+          },
+          "package_dimensions_unit": {
+            "type": "string",
+            "enum": [
+              "in",
+              "cm",
+              "ft"
+            ]
+          },
+          "package_dimensions": {
+            "type": "string",
+            "enum": [
+              "W8xL12xH4",
+              "W8xL12xH8"
+            ]
           },
           "createdAt": {
             "type": "string",
@@ -19746,17 +19869,6 @@
                             }
                           }
                         },
-                        "weight": {
-                          "type": "number",
-                          "format": "float"
-                        },
-                        "units": {
-                          "type": "string",
-                          "enum": [
-                            "oz",
-                            "Fl oz"
-                          ]
-                        },
                         "category": {
                           "type": "string",
                           "enum": [
@@ -19767,19 +19879,7 @@
                             "Accessory"
                           ]
                         },
-                        "certifications": {
-                          "type": "string"
-                        },
                         "countryOfOrigin": {
-                          "type": "string"
-                        },
-                        "packageDimensions": {
-                          "type": "string"
-                        },
-                        "sku": {
-                          "type": "string"
-                        },
-                        "batchNumber": {
                           "type": "string"
                         },
                         "upc": {
@@ -19980,6 +20080,40 @@
                                             }
                                           }
                                         }
+                                      },
+                                      "weight": {
+                                        "type": "number",
+                                        "format": "float"
+                                      },
+                                      "weight_unit": {
+                                        "type": "string",
+                                        "enum": [
+                                          "oz",
+                                          "fl oz"
+                                        ]
+                                      },
+                                      "sku": {
+                                        "type": "string",
+                                        "enum": [
+                                          "SM-DRY-2-OZ",
+                                          "SM-DRY-4-OZ",
+                                          "SM-DRY-8-OZ"
+                                        ]
+                                      },
+                                      "package_dimensions_unit": {
+                                        "type": "string",
+                                        "enum": [
+                                          "in",
+                                          "cm",
+                                          "ft"
+                                        ]
+                                      },
+                                      "package_dimensions": {
+                                        "type": "string",
+                                        "enum": [
+                                          "W8xL12xH4",
+                                          "W8xL12xH8"
+                                        ]
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -20776,8 +20910,8 @@
                         "description": {
                           "type": "string"
                         },
-                        "count": {
-                          "type": "integer"
+                        "certifications": {
+                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",

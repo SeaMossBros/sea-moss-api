@@ -5,6 +5,21 @@ import { Media } from '../../../../common/schemas-to-ts/Media';
 import { Product_Plain } from '../../../product/content-types/product/product';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
+export enum WeightUnit {
+  Oz = 'oz',
+  FlOz = 'fl oz',}
+export enum Sku {
+  SmDry2Oz = 'SM-DRY-2-OZ',
+  SmDry4Oz = 'SM-DRY-4-OZ',
+  SmDry8Oz = 'SM-DRY-8-OZ',}
+export enum PackageDimensionsUnit {
+  In = 'in',
+  Cm = 'cm',
+  Ft = 'ft',}
+export enum PackageDimensions {
+  W8xL12xH4 = 'W8xL12xH4',
+  W8xL12xH8 = 'W8xL12xH8',}
+
 export interface ProductVariant {
   id: number;
   attributes: {
@@ -15,6 +30,11 @@ export interface ProductVariant {
     stock?: number;
     units_per_stock?: number;
     image?: { data: Media };
+    weight?: number;
+    weight_unit?: WeightUnit;
+    sku?: Sku;
+    package_dimensions_unit?: PackageDimensionsUnit;
+    package_dimensions?: PackageDimensions;
   };
 }
 export interface ProductVariant_Plain {
@@ -26,6 +46,11 @@ export interface ProductVariant_Plain {
   stock?: number;
   units_per_stock?: number;
   image?: Media;
+  weight?: number;
+  weight_unit?: WeightUnit;
+  sku?: Sku;
+  package_dimensions_unit?: PackageDimensionsUnit;
+  package_dimensions?: PackageDimensions;
 }
 
 export interface ProductVariant_NoRelations {
@@ -37,6 +62,11 @@ export interface ProductVariant_NoRelations {
   stock?: number;
   units_per_stock?: number;
   image?: number;
+  weight?: number;
+  weight_unit?: WeightUnit;
+  sku?: Sku;
+  package_dimensions_unit?: PackageDimensionsUnit;
+  package_dimensions?: PackageDimensions;
 }
 
 export interface ProductVariant_AdminPanelLifeCycle {
@@ -48,4 +78,9 @@ export interface ProductVariant_AdminPanelLifeCycle {
   stock?: number;
   units_per_stock?: number;
   image?: AdminPanelRelationPropertyModification<Media>;
+  weight?: number;
+  weight_unit?: WeightUnit;
+  sku?: Sku;
+  package_dimensions_unit?: PackageDimensionsUnit;
+  package_dimensions?: PackageDimensions;
 }

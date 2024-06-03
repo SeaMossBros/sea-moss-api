@@ -40,6 +40,18 @@
       ],
       "default": "pending",
       "required": true
+    },
+    "shipping_address": {
+      "type": "string"
+    },
+    "tracking_url_provider": {
+      "type": "string"
+    },
+    "label_url": {
+      "type": "string"
+    },
+    "customer_experience": {
+      "type": "string"
     }
   }
 }

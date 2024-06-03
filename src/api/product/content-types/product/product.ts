@@ -11,9 +11,6 @@ import { PurchaseOption_Plain } from '../../../purchase-option/content-types/pur
 import { ProductReview_Plain } from '../../../product-review/content-types/product-review/product-review';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
-export enum Units {
-  Oz = 'oz',
-  FlOz = 'Fl oz',}
 export enum Category {
   Gel = 'Gel',
   Dried = 'Dried',
@@ -27,14 +24,8 @@ export interface Product {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    name: string;
     images: { data: Media[] };
     videos?: { data: Media[] };
-    weight?: number;
-    units?: Units;
     category?: Category;
-    certifications?: string;
     countryOfOrigin?: string;
-    packageDimensions?: string;
-    sku?: string;
-    batchNumber?: string;
     upc?: string;
     expirationDate?: Date;
     tipsForStorage?: string;
@@ -50,7 +41,7 @@ export interface Product {
     healthBenefits?: string;
     ingredients?: string;
     description?: string;
-    count?: number;
+    certifications?: string;
   };
 }
 export interface Product_Plain {
@@ -58,14 +49,8 @@ export interface Product_Plain {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
   images: Media[];
   videos?: Media[];
-  weight?: number;
-  units?: Units;
   category?: Category;
-  certifications?: string;
   countryOfOrigin?: string;
-  packageDimensions?: string;
-  sku?: string;
-  batchNumber?: string;
   upc?: string;
   expirationDate?: Date;
   tipsForStorage?: string;
@@ -81,7 +66,7 @@ export interface Product_Plain {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
-  count?: number;
+  certifications?: string;
 }
 
 export interface Product_NoRelations {
@@ -89,14 +74,8 @@ export interface Product_NoRelations {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
   images: number[];
   videos?: number[];
-  weight?: number;
-  units?: Units;
   category?: Category;
-  certifications?: string;
   countryOfOrigin?: string;
-  packageDimensions?: string;
-  sku?: string;
-  batchNumber?: string;
   upc?: string;
   expirationDate?: Date;
   tipsForStorage?: string;
@@ -112,7 +91,7 @@ export interface Product_NoRelations {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
-  count?: number;
+  certifications?: string;
 }
 
 export interface Product_AdminPanelLifeCycle {
@@ -120,14 +99,8 @@ export interface Product_AdminPanelLifeCycle {
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  name: string;
   images: AdminPanelRelationPropertyModification<Media>[];
   videos?: AdminPanelRelationPropertyModification<Media>[];
-  weight?: number;
-  units?: Units;
   category?: Category;
-  certifications?: string;
   countryOfOrigin?: string;
-  packageDimensions?: string;
-  sku?: string;
-  batchNumber?: string;
   upc?: string;
   expirationDate?: Date;
   tipsForStorage?: string;
@@ -143,5 +116,5 @@ export interface Product_AdminPanelLifeCycle {
   healthBenefits?: string;
   ingredients?: string;
   description?: string;
-  count?: number;
+  certifications?: string;
 }

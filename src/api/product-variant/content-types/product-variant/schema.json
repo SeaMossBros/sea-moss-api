@@ -40,12 +40,45 @@
       "min": 1
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "weight_unit": {
+      "type": "enumeration",
+      "enum": [
+        "oz",
+        "fl oz"
+      ]
+    },
+    "sku": {
+      "type": "enumeration",
+      "enum": [
+        "SM-DRY-2-OZ",
+        "SM-DRY-4-OZ",
+        "SM-DRY-8-OZ"
+      ]
+    },
+    "package_dimensions_unit": {
+      "type": "enumeration",
+      "enum": [
+        "in",
+        "cm",
+        "ft"
+      ]
+    },
+    "package_dimensions": {
+      "type": "enumeration",
+      "enum": [
+        "W8xL12xH4",
+        "W8xL12xH8"
+      ]
     }
   }
 }

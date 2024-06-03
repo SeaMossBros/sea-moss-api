@@ -36,16 +36,6 @@
         "videos"
       ]
     },
-    "weight": {
-      "type": "decimal"
-    },
-    "units": {
-      "type": "enumeration",
-      "enum": [
-        "oz",
-        "Fl oz"
-      ]
-    },
     "category": {
       "type": "enumeration",
       "enum": [
@@ -56,19 +46,7 @@
         "Accessory"
       ]
     },
-    "certifications": {
-      "type": "text"
-    },
     "countryOfOrigin": {
-      "type": "string"
-    },
-    "packageDimensions": {
-      "type": "string"
-    },
-    "sku": {
-      "type": "string"
-    },
-    "batchNumber": {
       "type": "string"
     },
     "upc": {
@@ -136,8 +114,8 @@
     "description": {
       "type": "richtext"
     },
-    "count": {
-      "type": "integer"
+    "certifications": {
+      "type": "string"
     }
   }
 }
