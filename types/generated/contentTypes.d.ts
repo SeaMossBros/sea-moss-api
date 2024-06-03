@@ -950,16 +950,16 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.SetMinMax<{
         min: 0;
       }>;
-    user_email: Attribute.Email;
     cart: Attribute.Relation<'api::order.order', 'oneToOne', 'api::cart.cart'>;
     payment_session_id: Attribute.UID & Attribute.Required & Attribute.Private;
     payment_status: Attribute.Enumeration<['pending', 'success', 'cancelled']> &
       Attribute.Required &
       Attribute.DefaultTo<'pending'>;
-    shipping_address: Attribute.String;
-    tracking_url_provider: Attribute.String;
-    label_url: Attribute.String;
-    customer_experience: Attribute.String;
+    shipping_address: Attribute.Text;
+    tracking_url_provider: Attribute.Text;
+    label_url: Attribute.Text;
+    customer_experience: Attribute.Text;
+    user_email: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -13,7 +13,6 @@ export interface Order {
   id: number;
   attributes: {
     createdAt: Date;    updatedAt: Date;    publishedAt?: Date;    total: number;
-    user_email?: string;
     cart?: { data: Cart };
     payment_session_id: string;
     payment_status: PaymentStatus;
@@ -21,12 +20,12 @@ export interface Order {
     tracking_url_provider?: string;
     label_url?: string;
     customer_experience?: string;
+    user_email?: string;
   };
 }
 export interface Order_Plain {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  total: number;
-  user_email?: string;
   cart?: Cart_Plain;
   payment_session_id: string;
   payment_status: PaymentStatus;
@@ -34,12 +33,12 @@ export interface Order_Plain {
   tracking_url_provider?: string;
   label_url?: string;
   customer_experience?: string;
+  user_email?: string;
 }
 
 export interface Order_NoRelations {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  total: number;
-  user_email?: string;
   cart?: number;
   payment_session_id: string;
   payment_status: PaymentStatus;
@@ -47,12 +46,12 @@ export interface Order_NoRelations {
   tracking_url_provider?: string;
   label_url?: string;
   customer_experience?: string;
+  user_email?: string;
 }
 
 export interface Order_AdminPanelLifeCycle {
   id: number;
   createdAt: Date;  updatedAt: Date;  publishedAt?: Date;  total: number;
-  user_email?: string;
   cart?: AdminPanelRelationPropertyModification<Cart_Plain>;
   payment_session_id: string;
   payment_status: PaymentStatus;
@@ -60,4 +59,5 @@ export interface Order_AdminPanelLifeCycle {
   tracking_url_provider?: string;
   label_url?: string;
   customer_experience?: string;
+  user_email?: string;
 }

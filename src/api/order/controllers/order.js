@@ -107,8 +107,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                     price_data: {
                         currency: 'USD',
                         product_data: {
-                            name: `${item.product.name}`.slice(0, 255),
-                            description: `${item.options.product_variant.name} x ${item.options.quantity}`.slice(0, 255)
+                            name: `${item.product.name}`,
+                            description: `${item.options.product_variant.name} x ${item.options.quantity}`
                         },
                         recurring: item.purchase_option.type === 'recurring' ? {
                             interval: item.purchase_option.recurring_interval ?? 'month',
@@ -157,7 +157,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                     total,
                     cart: data.cartId,
                     payment_status: 'pending',
-                    user_email: data.email && data.email.length ? data.email.slice(0, 255) : null,
+                    user_email: data.email && data.email.length ? data.email : '',
                 }
             })
             return { data: order, paymentUrl: session.url }

@@ -17,10 +17,6 @@
       "required": true,
       "min": 0
     },
-    "user_email": {
-      "type": "email",
-      "required": false
-    },
     "cart": {
       "type": "relation",
       "relation": "oneToOne",
@@ -42,16 +38,19 @@
       "required": true
     },
     "shipping_address": {
-      "type": "string"
+      "type": "text"
     },
     "tracking_url_provider": {
-      "type": "string"
+      "type": "text"
     },
     "label_url": {
-      "type": "string"
+      "type": "text"
     },
     "customer_experience": {
-      "type": "string"
+      "type": "text"
+    },
+    "user_email": {
+      "type": "text"
     }
   }
 }
