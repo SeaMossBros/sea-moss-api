@@ -33,15 +33,21 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             })
 
             if (existingOrders.length) {
-                await Promise.all(existingOrders.map(order => {
-                    return [
-                        // delete previous order
-                        strapi.entityService.delete('api::order.order', order.id),
-                        ...(order.payment_session_id ? [
-                            stripe.checkout.sessions.expire(order.payment_session_id)
-                        ] : [])
-                    ]
-                }).flat())
+                await Promise.all(existingOrders.map(async order => {
+                    // Delete previous order
+                    const deleteOrderPromise = strapi.entityService.delete('api::order.order', order.id);
+
+                    // Expire payment session if it exists and is open
+                    const expireSessionPromise = order.payment_session_id ? (async () => {
+                        const session = await stripe.checkout.sessions.retrieve(order.payment_session_id);
+                        if (session.status === 'open') {
+                            await stripe.checkout.sessions.expire(order.payment_session_id);
+                        }
+                    })() : Promise.resolve();
+
+                    // Wait for both promises to complete
+                    await Promise.all([deleteOrderPromise, expireSessionPromise]);
+                }));
             }
 
             const cart = await strapi.entityService?.findOne('api::cart.cart', data.cartId, {
