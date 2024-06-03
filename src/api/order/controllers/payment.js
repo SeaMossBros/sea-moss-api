@@ -187,7 +187,7 @@ module.exports = {
             /**
              * @type {import("../../cart/content-types/cart/cart").Cart_Plain}
             */
-           strapi.entityService.update('api::cart.cart', order.cart.id, {
+            strapi.entityService.update('api::cart.cart', order.cart.id, {
              data: {
                is_checked_out: true,
               }
@@ -195,10 +195,13 @@ module.exports = {
             
             ctx.body = JSON.stringify({ ...responseData, user: existingUser });
           } catch (err) {
-            console.log(err);
+            console.error(err);
+            ctx.response.status = 500;
+            ctx.body = { error: { message: 'There was a problem processing the shipment', details: err.message } };
           }
           return;
         }
+
         case 'expired': {
           const updatedOrder = await strapi.entityService.update('api::order.order', order.id, {
             data: {
@@ -215,13 +218,16 @@ module.exports = {
           })
           break
         }
+
         default:
           break
       }
 
       ctx.body = JSON.stringify({ ...responseData, user: null});
     } catch (err) {
-      ctx.body = err;
+      console.error(err);
+      ctx.response.status = 500;
+      ctx.body = { error: { message: 'There was a problem confirming the order', details: err.message } };
     }
   }
 };
