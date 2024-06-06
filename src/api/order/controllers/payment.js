@@ -57,6 +57,48 @@ module.exports = {
       switch (session.status) {
         case 'complete': { 
           try {
+            const isWeekend = (date) => {
+              const day = date.getUTCDay();
+              return day === 6 || day === 0; // Saturday is 6, Sunday is 0
+            }
+
+            const isHoliday = (date) => {
+              // Define holidays as an array of strings in the format 'MM-DD'
+              const holidays = ['01-01', '01-15', '02-19', '05-27', '06-19', '07-04', '09-02', '10-14', '11-11', '11-26', '11-27', '11-28', '11-29', '12-24', '12-25', '12-31']; // Example holidays
+
+              const dateString = date.toISOString().split('T')[0];
+              const monthDay = dateString.substring(5); // get MM-DD part
+              return holidays.includes(monthDay);
+            }
+
+            const getFutureDate = (daysInFuture) => {
+              let futureDate = new Date();
+              futureDate.setUTCDate(futureDate.getUTCDate() + daysInFuture);
+
+              // Check if the future date falls on a weekend
+              if (isWeekend(futureDate)) {
+                // Move to Monday
+                futureDate.setUTCDate(futureDate.getUTCDate() + (8 - futureDate.getUTCDay()));
+              }
+
+              // Check if the future date is a holiday
+              while (isHoliday(futureDate)) {
+                futureDate.setUTCDate(futureDate.getUTCDate() + 2);
+
+                // If the new date is a weekend, move to the next Monday
+                if (isWeekend(futureDate)) {
+                  futureDate.setUTCDate(futureDate.getUTCDate() + (8 - futureDate.getUTCDay()));
+                }
+              }
+
+              // Return the date as an ISO string in this format 2014-01-18T00:35:03.463Z (required by Shippo)
+              return futureDate.toISOString();
+            }
+
+            // Example usage
+            const shipmentDate = getFutureDate(2); // will ship 2 days in the future
+            // console.log(shipmentDate); 
+
             // create parcels for shippo
             const parcels = [];
             for (let i = 0; i < order.cart.cart_items.length; i++) {
@@ -84,8 +126,9 @@ module.exports = {
                 "state": "NJ",
                 "zip": "07701",
                 "country": "US", // iso2 country code
-                "email": "support@seathemoss.com",
-                // "phone": "+1 555 341 9393",
+                "email": "support@seathemoss.com", // required
+                "is_residential": false,
+                "phone": "+1 240 501 2148", // required
               },
               "address_to": {
                 "name": session.shipping_details.name,
@@ -97,10 +140,15 @@ module.exports = {
                 "country": "US", // iso2 country code, session.shipping_details.address.country
                 "phone": session.shipping_details.phone || "",
                 "company": "",
-                // "email": "",
+                "is_residential": true,
+                "email": session.customer_email,
               },
               "parcels": getParcels(), // ! needed, but not sure why... Do NOT change.
-              "async": true
+              "extra": {
+                "bypass_address_validation": true,
+              },
+              "shipment_date": shipmentDate,
+              "async": false
             })
 
             // console.log('\n')
@@ -114,11 +162,13 @@ module.exports = {
               }
             }
 
+            // console.log('cheapest rate', cheapestRate.servicelevel)
+
             // Purchase the desired rate.
             const transactionRes = !!cheapestRate ? await Shippo.transaction.create({
               "rate": cheapestRate.object_id,
-              "label_file_type": "PDF",
-              "async": true
+              "label_file_type": "PDF_2.3x7.5",
+              "async": false
             }) : {
               tracking_url_provider: '',
               label_url: ''
