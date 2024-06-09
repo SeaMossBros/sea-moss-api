@@ -51,6 +51,10 @@
     },
     "user_email": {
       "type": "text"
+    },
+    "label_is_printed": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

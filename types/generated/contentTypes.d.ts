@@ -960,6 +960,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     label_url: Attribute.Text;
     customer_experience: Attribute.Text;
     user_email: Attribute.Text;
+    label_is_printed: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

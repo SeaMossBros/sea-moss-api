@@ -21,6 +21,7 @@ export interface Order {
     label_url?: string;
     customer_experience?: string;
     user_email?: string;
+    label_is_printed?: boolean;
   };
 }
 export interface Order_Plain {
@@ -34,6 +35,7 @@ export interface Order_Plain {
   label_url?: string;
   customer_experience?: string;
   user_email?: string;
+  label_is_printed?: boolean;
 }
 
 export interface Order_NoRelations {
@@ -47,6 +49,7 @@ export interface Order_NoRelations {
   label_url?: string;
   customer_experience?: string;
   user_email?: string;
+  label_is_printed?: boolean;
 }
 
 export interface Order_AdminPanelLifeCycle {
@@ -60,4 +63,5 @@ export interface Order_AdminPanelLifeCycle {
   label_url?: string;
   customer_experience?: string;
   user_email?: string;
+  label_is_printed?: boolean;
 }

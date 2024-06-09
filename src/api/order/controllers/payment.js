@@ -243,6 +243,51 @@ module.exports = {
               }
             })
             
+            try {
+              const accountSid = process.env.TWILIO_ACCOUNT_SID;
+              const authToken = process.env.TWILIO_API_TOKEN;
+              const client = require('twilio')(accountSid, authToken);
+
+              const phoneNumbers = ['+12405012148', '+12402735088'];
+              for (let i = 0; i < phoneNumbers.length; i++){
+                await client.messages.create({
+                  body: `A new ${'$' + updatedOrder.total} order was placed on SeaTheMoss by ${existingUser.username || existingUser.email}! Go view the order to print the label https://seathemoss.com/profile/customer-orders`,
+                  from: '+18339203103',
+                  to: phoneNumbers[i]
+                })
+              }
+            } catch (err) {
+              console.error(err);
+            }
+
+            // console.log('msg::: ', message); 
+            /*
+              {
+                body: 'Sent from your Twilio trial account - A new $59.98 order was placed on SeaTheMoss by justaliltestperson! Go view the order to print the label https://seathemoss.com/profile/customer-orders',
+                numSegments: '2',
+                direction: 'outbound-api',
+                from: '+18339203103',
+                to: '+12405012148',
+                dateUpdated: 2024-06-09T02:13:23.000Z,
+                price: null,
+                errorMessage: null,
+                uri: '/2010-04-01/Accounts/AC7c7966d63db015a0a6888d3c8d92b180/Messages/SMad6b9d2d00c4f66a79127449a5876c90.json',
+                accountSid: 'AC7c7966d63db015a0a6888d3c8d92b180',
+                numMedia: '0',
+                status: 'queued',
+                messagingServiceSid: null,
+                sid: 'SMad6b9d2d00c4f66a79127449a5876c90',
+                dateSent: null,
+                dateCreated: 2024-06-09T02:13:23.000Z,
+                errorCode: null,
+                priceUnit: 'USD',
+                apiVersion: '2010-04-01',
+                subresourceUris: {
+                  media: '/2010-04-01/Accounts/AC7c7966d63db015a0a6888d3c8d92b180/Messages/SMad6b9d2d00c4f66a79127449a5876c90/Media.json'
+                }
+              }
+            */
+            
             ctx.body = JSON.stringify({ ...responseData, user: existingUser });
           } catch (err) {
             console.error(err);

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-03T00:24:58.465Z"
+    "x-generation-date": "2024-06-09T15:20:56.217Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7275,10 +7275,6 @@
                 "type": "number",
                 "format": "float"
               },
-              "user_email": {
-                "type": "string",
-                "format": "email"
-              },
               "cart": {
                 "oneOf": [
                   {
@@ -7312,6 +7308,12 @@
               },
               "customer_experience": {
                 "type": "string"
+              },
+              "user_email": {
+                "type": "string"
+              },
+              "label_is_printed": {
+                "type": "boolean"
               }
             }
           }
@@ -7374,10 +7376,6 @@
           "total": {
             "type": "number",
             "format": "float"
-          },
-          "user_email": {
-            "type": "string",
-            "format": "email"
           },
           "cart": {
             "type": "object",
@@ -9498,6 +9496,12 @@
           },
           "customer_experience": {
             "type": "string"
+          },
+          "user_email": {
+            "type": "string"
+          },
+          "label_is_printed": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
