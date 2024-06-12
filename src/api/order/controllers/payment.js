@@ -2,6 +2,7 @@
 
 const Stripe = require("stripe").default;
 const Shippo = require("shippo")(process.env.SHIPPO_TEST_TOKEN);
+const axios = require('axios');
 
 module.exports = {
   confirm: async (ctx, next) => {
@@ -97,7 +98,6 @@ module.exports = {
 
             // Example usage
             const shipmentDate = getFutureDate(2); // will ship 2 days in the future
-            // console.log(shipmentDate); 
 
             // create parcels for shippo
             const parcels = [];
@@ -151,18 +151,12 @@ module.exports = {
               "async": false
             })
 
-            // console.log('\n')
-            // console.log('shipmentRes', shipmentRes)
-            
             let cheapestRate = null;
-            // console.log('\nrates count: ', shipmentRes.rates.length + '\n');
             for (let i = 0; i < shipmentRes.rates.length; i++) {
               if (!cheapestRate || Number(shipmentRes.rates[i].amount) < Number(cheapestRate.amount)) {
                 cheapestRate = shipmentRes.rates[i];
               }
             }
-
-            // console.log('cheapest rate', cheapestRate.servicelevel)
 
             // Purchase the desired rate.
             const transactionRes = !!cheapestRate ? await Shippo.transaction.create({
@@ -174,24 +168,13 @@ module.exports = {
               label_url: ''
             };
             
-            // console.log('\n')
-            // console.log('transactionRes', transactionRes)
-            
             const customerExperience = session.custom_fields.find((field) => field.key === 'customers_shopping_experience_kjha09823sdiwyi2u0422').text.value || '';
 
             /**
              * @type {any}
             */
             const customer = await stripe.customers.retrieve(session.customer.toString())
-            // console.log('payment res data', {
-            //   payment_status: "success",
-            //   tracking_url_provider: transactionRes.tracking_url_provider,
-            //   label_url: transactionRes.label_url,
-            //   shipping_address: JSON.stringify(shipmentRes.address_to),
-            //   customer_experience: customerExperience,
-            //   user_email: customer.email,
-            //   publishedAt: new Date()
-            // });
+            
             const updatedOrder = await strapi.entityService.update('api::order.order', order.id, {
               data: {
                 payment_status: "success",
@@ -244,50 +227,18 @@ module.exports = {
             })
             
             try {
-              const accountSid = process.env.TWILIO_ACCOUNT_SID;
-              const authToken = process.env.TWILIO_API_TOKEN;
-              const client = require('twilio')(accountSid, authToken);
-
-              const phoneNumbers = ['+12405012148', '+12402735088'];
+              const phoneNumbers = ['2405012148', '2402735088'];
               for (let i = 0; i < phoneNumbers.length; i++){
-                await client.messages.create({
-                  body: `A new ${'$' + updatedOrder.total} order was placed on SeaTheMoss by ${existingUser.username || existingUser.email}! Go view the order to print the label https://seathemoss.com/profile/customer-orders`,
-                  from: '+18339203103',
-                  to: phoneNumbers[i]
-                })
+                await axios.post('https://textbelt.com/text', {
+                  phone: phoneNumbers[i],
+                  message: `A new order for ${'$' + updatedOrder.total} was placed on SeaTheMoss by ${existingUser.username || existingUser.email}! Go view the order here: https://seathemoss.com/profile/customer-orders or print the label here: ${updatedOrder.label_url}`,
+                  key: process.env.TEXT_BELT_API,
+                });
               }
             } catch (err) {
               console.error(err);
             }
 
-            // console.log('msg::: ', message); 
-            /*
-              {
-                body: 'Sent from your Twilio trial account - A new $59.98 order was placed on SeaTheMoss by justaliltestperson! Go view the order to print the label https://seathemoss.com/profile/customer-orders',
-                numSegments: '2',
-                direction: 'outbound-api',
-                from: '+18339203103',
-                to: '+12405012148',
-                dateUpdated: 2024-06-09T02:13:23.000Z,
-                price: null,
-                errorMessage: null,
-                uri: '/2010-04-01/Accounts/AC7c7966d63db015a0a6888d3c8d92b180/Messages/SMad6b9d2d00c4f66a79127449a5876c90.json',
-                accountSid: 'AC7c7966d63db015a0a6888d3c8d92b180',
-                numMedia: '0',
-                status: 'queued',
-                messagingServiceSid: null,
-                sid: 'SMad6b9d2d00c4f66a79127449a5876c90',
-                dateSent: null,
-                dateCreated: 2024-06-09T02:13:23.000Z,
-                errorCode: null,
-                priceUnit: 'USD',
-                apiVersion: '2010-04-01',
-                subresourceUris: {
-                  media: '/2010-04-01/Accounts/AC7c7966d63db015a0a6888d3c8d92b180/Messages/SMad6b9d2d00c4f66a79127449a5876c90/Media.json'
-                }
-              }
-            */
-            
             ctx.body = JSON.stringify({ ...responseData, user: existingUser });
           } catch (err) {
             console.error(err);
