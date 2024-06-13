@@ -1348,7 +1348,7 @@ export interface ApiUrlShortnerUrlShortner extends Schema.CollectionType {
   };
   attributes: {
     short_code: Attribute.String & Attribute.Required & Attribute.Unique;
-    url: Attribute.String & Attribute.Required & Attribute.Unique;
+    url: Attribute.Text & Attribute.Required & Attribute.Unique;
     visits: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<{
