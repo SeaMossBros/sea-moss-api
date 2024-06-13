@@ -15,6 +15,7 @@
     "@strapi/plugin-users-permissions": "4.13.7",
     "@strapi/provider-email-sendmail": "^4.20.5",
     "@strapi/strapi": "4.14",
+    "axios": "^1.7.2",
     "better-sqlite3": "8.6.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",

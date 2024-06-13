@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "url_shortners",
+  "info": {
+    "singularName": "url-shortner",
+    "pluralName": "url-shortners",
+    "displayName": "Url Shortner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "short_code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "visits": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    }
+  }
+}

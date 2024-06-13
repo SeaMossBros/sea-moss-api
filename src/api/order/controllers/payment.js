@@ -3,6 +3,7 @@
 const Stripe = require("stripe").default;
 const Shippo = require("shippo")(process.env.SHIPPO_TEST_TOKEN);
 const axios = require('axios');
+const crypto = require('crypto');
 
 module.exports = {
   confirm: async (ctx, next) => {
@@ -175,11 +176,32 @@ module.exports = {
             */
             const customer = await stripe.customers.retrieve(session.customer.toString())
             
+            // create short code
+            let shortCode;
+            let existingEntry;
+
+            do  {
+              shortCode = crypto.createHash('md5').update(transactionRes.label_url).digest('hex').slice(0, 6);
+  
+              // Check if the shortCode already exists
+              existingEntry = await strapi.query('api::url-shortner.url-shortner').findOne({
+                where: { short_code: shortCode },
+              });
+            } while (existingEntry)
+
+            // Create new ShortUrl entry
+            await strapi.entityService.create('api::url-shortner.url-shortner', {
+              data: { 
+                url: transactionRes.label_url, 
+                short_code: shortCode 
+              }
+            });
+
             const updatedOrder = await strapi.entityService.update('api::order.order', order.id, {
               data: {
                 payment_status: "success",
                 tracking_url_provider: transactionRes.tracking_url_provider,
-                label_url: transactionRes.label_url,
+                label_url: `${process.env.SERVER_URL}/api/url-shortner/s/${shortCode}`,
                 shipping_address: JSON.stringify(shipmentRes.address_to),
                 customer_experience: customerExperience,
                 user_email: customer.email,
@@ -227,11 +249,11 @@ module.exports = {
             })
             
             try {
-              const phoneNumbers = ['2405012148', '2402735088'];
+              const phoneNumbers = ['2405012148']; // , '2402735088'
               for (let i = 0; i < phoneNumbers.length; i++){
                 await axios.post('https://textbelt.com/text', {
                   phone: phoneNumbers[i],
-                  message: `A new order for ${'$' + updatedOrder.total} was placed on SeaTheMoss by ${existingUser.username || existingUser.email}! Go view the order here: https://seathemoss.com/profile/customer-orders or print the label here: ${updatedOrder.label_url}`,
+                  message: `A new order for ${'$' + updatedOrder.total} was placed on SeaTheMoss by\n${existingUser.username || existingUser.email}\n*** Order #${updatedOrder.id} ***\n\nView the order here: seathemoss.com/profile/customer-orders\n\nOr print the label here:\n${updatedOrder.label_url}`,
                   key: process.env.TEXT_BELT_API,
                 });
               }

@@ -1335,6 +1335,43 @@ export interface ApiSupportPageSupportPage extends Schema.SingleType {
   };
 }
 
+export interface ApiUrlShortnerUrlShortner extends Schema.CollectionType {
+  collectionName: 'url_shortners';
+  info: {
+    singularName: 'url-shortner';
+    pluralName: 'url-shortners';
+    displayName: 'Url Shortner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    short_code: Attribute.String & Attribute.Required & Attribute.Unique;
+    url: Attribute.String & Attribute.Required & Attribute.Unique;
+    visits: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::url-shortner.url-shortner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::url-shortner.url-shortner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1367,6 +1404,7 @@ declare module '@strapi/types' {
       'api::purchase-option.purchase-option': ApiPurchaseOptionPurchaseOption;
       'api::support-message.support-message': ApiSupportMessageSupportMessage;
       'api::support-page.support-page': ApiSupportPageSupportPage;
+      'api::url-shortner.url-shortner': ApiUrlShortnerUrlShortner;
     }
   }
 }
