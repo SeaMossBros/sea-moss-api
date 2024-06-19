@@ -108,9 +108,9 @@ module.exports = {
               parcels.push({
                 "width": packageDimensionsArr[0].slice(1),
                 "length": packageDimensionsArr[1].slice(1),
-                "height": packageDimensionsArr[2].slice(1),
+                "height": (Number(packageDimensionsArr[2].slice(1)) * cart_item.options.quantity).toString(),
                 "distance_unit": cart_item.options.product_variant.package_dimensions_unit,
-                "weight": `${cart_item.options.product_variant.weight}`,
+                "weight": `${(cart_item.options.product_variant.weight + 2) * cart_item.options.quantity}`, // adds 2 to account for packaging
                 "mass_unit": cart_item.options.product_variant.weight_unit,
               });
             }
@@ -249,7 +249,8 @@ module.exports = {
             })
             
             try {
-              const phoneNumbers = ['2405012148']; // , '2402735088'
+              const phoneNumbers = process.env.ADMIN_PHONE_NUMBERS.split(',');
+              console.log('numbers', phoneNumbers)
               for (let i = 0; i < phoneNumbers.length; i++){
                 await axios.post('https://textbelt.com/text', {
                   phone: phoneNumbers[i],
