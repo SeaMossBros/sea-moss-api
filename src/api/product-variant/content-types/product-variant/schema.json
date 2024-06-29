@@ -53,6 +53,7 @@
     "weight_unit": {
       "type": "enumeration",
       "enum": [
+        "lb",
         "oz",
         "fl oz"
       ]
@@ -62,7 +63,9 @@
       "enum": [
         "SM-DRY-2-OZ",
         "SM-DRY-4-OZ",
-        "SM-DRY-8-OZ"
+        "SM-DRY-8-OZ",
+        "SM-DRY-1-LB",
+        "SM-DRY-2-LB"
       ]
     },
     "package_dimensions_unit": {
@@ -77,7 +80,24 @@
       "type": "enumeration",
       "enum": [
         "W8xL12xH4",
-        "W8xL12xH8"
+        "W8xL12xH8",
+        "W8xL12xH12",
+        "W8xL12xH16",
+        "W8xL12xH20"
+      ]
+    },
+    "has_discount": {
+      "type": "boolean"
+    },
+    "discount_value": {
+      "type": "decimal",
+      "min": 0
+    },
+    "discount_unit": {
+      "type": "enumeration",
+      "enum": [
+        "fiat",
+        "percentage"
       ]
     }
   }

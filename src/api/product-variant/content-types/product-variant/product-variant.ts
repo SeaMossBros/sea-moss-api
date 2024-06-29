@@ -6,19 +6,28 @@ import { Product_Plain } from '../../../product/content-types/product/product';
 import { AdminPanelRelationPropertyModification } from '../../../../common/schemas-to-ts/AdminPanelRelationPropertyModification';
 
 export enum WeightUnit {
+  Lb = 'lb',
   Oz = 'oz',
   FlOz = 'fl oz',}
 export enum Sku {
   SmDry2Oz = 'SM-DRY-2-OZ',
   SmDry4Oz = 'SM-DRY-4-OZ',
-  SmDry8Oz = 'SM-DRY-8-OZ',}
+  SmDry8Oz = 'SM-DRY-8-OZ',
+  SmDry1Lb = 'SM-DRY-1-LB',
+  SmDry2Lb = 'SM-DRY-2-LB',}
 export enum PackageDimensionsUnit {
   In = 'in',
   Cm = 'cm',
   Ft = 'ft',}
 export enum PackageDimensions {
   W8xL12xH4 = 'W8xL12xH4',
-  W8xL12xH8 = 'W8xL12xH8',}
+  W8xL12xH8 = 'W8xL12xH8',
+  W8xL12xH12 = 'W8xL12xH12',
+  W8xL12xH16 = 'W8xL12xH16',
+  W8xL12xH20 = 'W8xL12xH20',}
+export enum DiscountUnit {
+  Fiat = 'fiat',
+  Percentage = 'percentage',}
 
 export interface ProductVariant {
   id: number;
@@ -35,6 +44,9 @@ export interface ProductVariant {
     sku?: Sku;
     package_dimensions_unit?: PackageDimensionsUnit;
     package_dimensions?: PackageDimensions;
+    has_discount?: boolean;
+    discount_value?: number;
+    discount_unit?: DiscountUnit;
   };
 }
 export interface ProductVariant_Plain {
@@ -51,6 +63,9 @@ export interface ProductVariant_Plain {
   sku?: Sku;
   package_dimensions_unit?: PackageDimensionsUnit;
   package_dimensions?: PackageDimensions;
+  has_discount?: boolean;
+  discount_value?: number;
+  discount_unit?: DiscountUnit;
 }
 
 export interface ProductVariant_NoRelations {
@@ -67,6 +82,9 @@ export interface ProductVariant_NoRelations {
   sku?: Sku;
   package_dimensions_unit?: PackageDimensionsUnit;
   package_dimensions?: PackageDimensions;
+  has_discount?: boolean;
+  discount_value?: number;
+  discount_unit?: DiscountUnit;
 }
 
 export interface ProductVariant_AdminPanelLifeCycle {
@@ -83,4 +101,7 @@ export interface ProductVariant_AdminPanelLifeCycle {
   sku?: Sku;
   package_dimensions_unit?: PackageDimensionsUnit;
   package_dimensions?: PackageDimensions;
+  has_discount?: boolean;
+  discount_value?: number;
+  discount_unit?: DiscountUnit;
 }

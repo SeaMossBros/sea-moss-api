@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-13T22:17:24.277Z"
+    "x-generation-date": "2024-06-29T22:56:35.149Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3744,6 +3744,7 @@
                                                   "weight_unit": {
                                                     "type": "string",
                                                     "enum": [
+                                                      "lb",
                                                       "oz",
                                                       "fl oz"
                                                     ]
@@ -3753,7 +3754,9 @@
                                                     "enum": [
                                                       "SM-DRY-2-OZ",
                                                       "SM-DRY-4-OZ",
-                                                      "SM-DRY-8-OZ"
+                                                      "SM-DRY-8-OZ",
+                                                      "SM-DRY-1-LB",
+                                                      "SM-DRY-2-LB"
                                                     ]
                                                   },
                                                   "package_dimensions_unit": {
@@ -3768,7 +3771,24 @@
                                                     "type": "string",
                                                     "enum": [
                                                       "W8xL12xH4",
-                                                      "W8xL12xH8"
+                                                      "W8xL12xH8",
+                                                      "W8xL12xH12",
+                                                      "W8xL12xH16",
+                                                      "W8xL12xH20"
+                                                    ]
+                                                  },
+                                                  "has_discount": {
+                                                    "type": "boolean"
+                                                  },
+                                                  "discount_value": {
+                                                    "type": "number",
+                                                    "format": "float"
+                                                  },
+                                                  "discount_unit": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                      "fiat",
+                                                      "percentage"
                                                     ]
                                                   },
                                                   "createdAt": {
@@ -5997,6 +6017,7 @@
                                     "weight_unit": {
                                       "type": "string",
                                       "enum": [
+                                        "lb",
                                         "oz",
                                         "fl oz"
                                       ]
@@ -6006,7 +6027,9 @@
                                       "enum": [
                                         "SM-DRY-2-OZ",
                                         "SM-DRY-4-OZ",
-                                        "SM-DRY-8-OZ"
+                                        "SM-DRY-8-OZ",
+                                        "SM-DRY-1-LB",
+                                        "SM-DRY-2-LB"
                                       ]
                                     },
                                     "package_dimensions_unit": {
@@ -6021,7 +6044,24 @@
                                       "type": "string",
                                       "enum": [
                                         "W8xL12xH4",
-                                        "W8xL12xH8"
+                                        "W8xL12xH8",
+                                        "W8xL12xH12",
+                                        "W8xL12xH16",
+                                        "W8xL12xH20"
+                                      ]
+                                    },
+                                    "has_discount": {
+                                      "type": "boolean"
+                                    },
+                                    "discount_value": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "discount_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "fiat",
+                                        "percentage"
                                       ]
                                     },
                                     "createdAt": {
@@ -9175,6 +9215,7 @@
                                                               "weight_unit": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                  "lb",
                                                                   "oz",
                                                                   "fl oz"
                                                                 ]
@@ -9184,7 +9225,9 @@
                                                                 "enum": [
                                                                   "SM-DRY-2-OZ",
                                                                   "SM-DRY-4-OZ",
-                                                                  "SM-DRY-8-OZ"
+                                                                  "SM-DRY-8-OZ",
+                                                                  "SM-DRY-1-LB",
+                                                                  "SM-DRY-2-LB"
                                                                 ]
                                                               },
                                                               "package_dimensions_unit": {
@@ -9199,7 +9242,24 @@
                                                                 "type": "string",
                                                                 "enum": [
                                                                   "W8xL12xH4",
-                                                                  "W8xL12xH8"
+                                                                  "W8xL12xH8",
+                                                                  "W8xL12xH12",
+                                                                  "W8xL12xH16",
+                                                                  "W8xL12xH20"
+                                                                ]
+                                                              },
+                                                              "has_discount": {
+                                                                "type": "boolean"
+                                                              },
+                                                              "discount_value": {
+                                                                "type": "number",
+                                                                "format": "float"
+                                                              },
+                                                              "discount_unit": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                  "fiat",
+                                                                  "percentage"
                                                                 ]
                                                               },
                                                               "createdAt": {
@@ -12676,6 +12736,7 @@
                         "weight_unit": {
                           "type": "string",
                           "enum": [
+                            "lb",
                             "oz",
                             "fl oz"
                           ]
@@ -12685,7 +12746,9 @@
                           "enum": [
                             "SM-DRY-2-OZ",
                             "SM-DRY-4-OZ",
-                            "SM-DRY-8-OZ"
+                            "SM-DRY-8-OZ",
+                            "SM-DRY-1-LB",
+                            "SM-DRY-2-LB"
                           ]
                         },
                         "package_dimensions_unit": {
@@ -12700,7 +12763,24 @@
                           "type": "string",
                           "enum": [
                             "W8xL12xH4",
-                            "W8xL12xH8"
+                            "W8xL12xH8",
+                            "W8xL12xH12",
+                            "W8xL12xH16",
+                            "W8xL12xH20"
+                          ]
+                        },
+                        "has_discount": {
+                          "type": "boolean"
+                        },
+                        "discount_value": {
+                          "type": "number",
+                          "format": "float"
+                        },
+                        "discount_unit": {
+                          "type": "string",
+                          "enum": [
+                            "fiat",
+                            "percentage"
                           ]
                         },
                         "createdAt": {
@@ -14141,6 +14221,7 @@
                                     "weight_unit": {
                                       "type": "string",
                                       "enum": [
+                                        "lb",
                                         "oz",
                                         "fl oz"
                                       ]
@@ -14150,7 +14231,9 @@
                                       "enum": [
                                         "SM-DRY-2-OZ",
                                         "SM-DRY-4-OZ",
-                                        "SM-DRY-8-OZ"
+                                        "SM-DRY-8-OZ",
+                                        "SM-DRY-1-LB",
+                                        "SM-DRY-2-LB"
                                       ]
                                     },
                                     "package_dimensions_unit": {
@@ -14165,7 +14248,24 @@
                                       "type": "string",
                                       "enum": [
                                         "W8xL12xH4",
-                                        "W8xL12xH8"
+                                        "W8xL12xH8",
+                                        "W8xL12xH12",
+                                        "W8xL12xH16",
+                                        "W8xL12xH20"
+                                      ]
+                                    },
+                                    "has_discount": {
+                                      "type": "boolean"
+                                    },
+                                    "discount_value": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "discount_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "fiat",
+                                        "percentage"
                                       ]
                                     },
                                     "createdAt": {
@@ -16351,6 +16451,7 @@
                                     "weight_unit": {
                                       "type": "string",
                                       "enum": [
+                                        "lb",
                                         "oz",
                                         "fl oz"
                                       ]
@@ -16360,7 +16461,9 @@
                                       "enum": [
                                         "SM-DRY-2-OZ",
                                         "SM-DRY-4-OZ",
-                                        "SM-DRY-8-OZ"
+                                        "SM-DRY-8-OZ",
+                                        "SM-DRY-1-LB",
+                                        "SM-DRY-2-LB"
                                       ]
                                     },
                                     "package_dimensions_unit": {
@@ -16375,7 +16478,24 @@
                                       "type": "string",
                                       "enum": [
                                         "W8xL12xH4",
-                                        "W8xL12xH8"
+                                        "W8xL12xH8",
+                                        "W8xL12xH12",
+                                        "W8xL12xH16",
+                                        "W8xL12xH20"
+                                      ]
+                                    },
+                                    "has_discount": {
+                                      "type": "boolean"
+                                    },
+                                    "discount_value": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "discount_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "fiat",
+                                        "percentage"
                                       ]
                                     },
                                     "createdAt": {
@@ -17496,6 +17616,7 @@
               "weight_unit": {
                 "type": "string",
                 "enum": [
+                  "lb",
                   "oz",
                   "fl oz"
                 ]
@@ -17505,7 +17626,9 @@
                 "enum": [
                   "SM-DRY-2-OZ",
                   "SM-DRY-4-OZ",
-                  "SM-DRY-8-OZ"
+                  "SM-DRY-8-OZ",
+                  "SM-DRY-1-LB",
+                  "SM-DRY-2-LB"
                 ]
               },
               "package_dimensions_unit": {
@@ -17520,7 +17643,24 @@
                 "type": "string",
                 "enum": [
                   "W8xL12xH4",
-                  "W8xL12xH8"
+                  "W8xL12xH8",
+                  "W8xL12xH12",
+                  "W8xL12xH16",
+                  "W8xL12xH20"
+                ]
+              },
+              "has_discount": {
+                "type": "boolean"
+              },
+              "discount_value": {
+                "type": "number",
+                "format": "float"
+              },
+              "discount_unit": {
+                "type": "string",
+                "enum": [
+                  "fiat",
+                  "percentage"
                 ]
               }
             }
@@ -18587,6 +18727,7 @@
                                     "weight_unit": {
                                       "type": "string",
                                       "enum": [
+                                        "lb",
                                         "oz",
                                         "fl oz"
                                       ]
@@ -18596,7 +18737,9 @@
                                       "enum": [
                                         "SM-DRY-2-OZ",
                                         "SM-DRY-4-OZ",
-                                        "SM-DRY-8-OZ"
+                                        "SM-DRY-8-OZ",
+                                        "SM-DRY-1-LB",
+                                        "SM-DRY-2-LB"
                                       ]
                                     },
                                     "package_dimensions_unit": {
@@ -18611,7 +18754,24 @@
                                       "type": "string",
                                       "enum": [
                                         "W8xL12xH4",
-                                        "W8xL12xH8"
+                                        "W8xL12xH8",
+                                        "W8xL12xH12",
+                                        "W8xL12xH16",
+                                        "W8xL12xH20"
+                                      ]
+                                    },
+                                    "has_discount": {
+                                      "type": "boolean"
+                                    },
+                                    "discount_value": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
+                                    "discount_unit": {
+                                      "type": "string",
+                                      "enum": [
+                                        "fiat",
+                                        "percentage"
                                       ]
                                     },
                                     "createdAt": {
@@ -19619,6 +19779,7 @@
           "weight_unit": {
             "type": "string",
             "enum": [
+              "lb",
               "oz",
               "fl oz"
             ]
@@ -19628,7 +19789,9 @@
             "enum": [
               "SM-DRY-2-OZ",
               "SM-DRY-4-OZ",
-              "SM-DRY-8-OZ"
+              "SM-DRY-8-OZ",
+              "SM-DRY-1-LB",
+              "SM-DRY-2-LB"
             ]
           },
           "package_dimensions_unit": {
@@ -19643,7 +19806,24 @@
             "type": "string",
             "enum": [
               "W8xL12xH4",
-              "W8xL12xH8"
+              "W8xL12xH8",
+              "W8xL12xH12",
+              "W8xL12xH16",
+              "W8xL12xH20"
+            ]
+          },
+          "has_discount": {
+            "type": "boolean"
+          },
+          "discount_value": {
+            "type": "number",
+            "format": "float"
+          },
+          "discount_unit": {
+            "type": "string",
+            "enum": [
+              "fiat",
+              "percentage"
             ]
           },
           "createdAt": {
@@ -20863,6 +21043,7 @@
                                       "weight_unit": {
                                         "type": "string",
                                         "enum": [
+                                          "lb",
                                           "oz",
                                           "fl oz"
                                         ]
@@ -20872,7 +21053,9 @@
                                         "enum": [
                                           "SM-DRY-2-OZ",
                                           "SM-DRY-4-OZ",
-                                          "SM-DRY-8-OZ"
+                                          "SM-DRY-8-OZ",
+                                          "SM-DRY-1-LB",
+                                          "SM-DRY-2-LB"
                                         ]
                                       },
                                       "package_dimensions_unit": {
@@ -20887,7 +21070,24 @@
                                         "type": "string",
                                         "enum": [
                                           "W8xL12xH4",
-                                          "W8xL12xH8"
+                                          "W8xL12xH8",
+                                          "W8xL12xH12",
+                                          "W8xL12xH16",
+                                          "W8xL12xH20"
+                                        ]
+                                      },
+                                      "has_discount": {
+                                        "type": "boolean"
+                                      },
+                                      "discount_value": {
+                                        "type": "number",
+                                        "format": "float"
+                                      },
+                                      "discount_unit": {
+                                        "type": "string",
+                                        "enum": [
+                                          "fiat",
+                                          "percentage"
                                         ]
                                       },
                                       "createdAt": {

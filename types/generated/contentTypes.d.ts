@@ -1199,10 +1199,26 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
       Attribute.DefaultTo<1>;
     image: Attribute.Media;
     weight: Attribute.Decimal;
-    weight_unit: Attribute.Enumeration<['oz', 'fl oz']>;
-    sku: Attribute.Enumeration<['SM-DRY-2-OZ', 'SM-DRY-4-OZ', 'SM-DRY-8-OZ']>;
+    weight_unit: Attribute.Enumeration<['lb', 'oz', 'fl oz']>;
+    sku: Attribute.Enumeration<
+      [
+        'SM-DRY-2-OZ',
+        'SM-DRY-4-OZ',
+        'SM-DRY-8-OZ',
+        'SM-DRY-1-LB',
+        'SM-DRY-2-LB'
+      ]
+    >;
     package_dimensions_unit: Attribute.Enumeration<['in', 'cm', 'ft']>;
-    package_dimensions: Attribute.Enumeration<['W8xL12xH4', 'W8xL12xH8']>;
+    package_dimensions: Attribute.Enumeration<
+      ['W8xL12xH4', 'W8xL12xH8', 'W8xL12xH12', 'W8xL12xH16', 'W8xL12xH20']
+    >;
+    has_discount: Attribute.Boolean;
+    discount_value: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    discount_unit: Attribute.Enumeration<['fiat', 'percentage']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
