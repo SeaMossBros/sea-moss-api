@@ -249,12 +249,15 @@ module.exports = {
             })
             
             try {
-              const phoneNumbers = process.env.ADMIN_PHONE_NUMBERS.split(',');
-              console.log('numbers', phoneNumbers)
+              const phoneNumbers = ['2405012148', '2402735088'];
               for (let i = 0; i < phoneNumbers.length; i++){
                 await axios.post('https://textbelt.com/text', {
                   phone: phoneNumbers[i],
-                  message: `A new order for ${'$' + updatedOrder.total} was placed on SeaTheMoss by\n${existingUser.username || existingUser.email}\n*** Order #${updatedOrder.id} ***\n\nView the order here: seathemoss.com/profile/customer-orders\n\nOr print the label here:\n${updatedOrder.label_url}`,
+                  message: `A new order for ${'$' + updatedOrder.total} was placed on SeaTheMoss by\n`
+                    + `${existingUser.username || existingUser.email}\n`
+                    +`*** Order #${updatedOrder.id} ***\n\n`
+                    + 'View the order here: seathemoss.com/profile/customer-orders\n\n'
+                    + `Or print the label here:\n${updatedOrder.label_url}`,
                   key: process.env.TEXT_BELT_API,
                 });
               }
