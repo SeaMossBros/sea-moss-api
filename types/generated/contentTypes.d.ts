@@ -803,7 +803,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    introduction: Attribute.Text;
     slug: Attribute.UID<'api::article.article', 'title'>;
     cover: Attribute.Media & Attribute.Required;
     author: Attribute.Relation<
@@ -812,6 +811,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::author.author'
     >;
     content: Attribute.RichText;
+    introduction: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

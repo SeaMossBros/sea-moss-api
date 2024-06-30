@@ -16,9 +16,6 @@
       "type": "string",
       "required": true
     },
-    "introduction": {
-      "type": "text"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title",
@@ -39,6 +36,9 @@
       "target": "api::author.author"
     },
     "content": {
+      "type": "richtext"
+    },
+    "introduction": {
       "type": "richtext"
     }
   }
