@@ -12,8 +12,8 @@ export interface Article {
     introduction?: string;
     slug?: string;
     cover: { data: Media };
-    content: string;
     author?: { data: Author };
+    content?: string;
   };
 }
 export interface Article_Plain {
@@ -22,8 +22,8 @@ export interface Article_Plain {
   introduction?: string;
   slug?: string;
   cover: Media;
-  content: string;
   author?: Author_Plain;
+  content?: string;
 }
 
 export interface Article_NoRelations {
@@ -32,8 +32,8 @@ export interface Article_NoRelations {
   introduction?: string;
   slug?: string;
   cover: number;
-  content: string;
   author?: number;
+  content?: string;
 }
 
 export interface Article_AdminPanelLifeCycle {
@@ -42,6 +42,6 @@ export interface Article_AdminPanelLifeCycle {
   introduction?: string;
   slug?: string;
   cover: AdminPanelRelationPropertyModification<Media>;
-  content: string;
   author?: AdminPanelRelationPropertyModification<Author_Plain>;
+  content?: string;
 }

@@ -33,14 +33,13 @@
         "videos"
       ]
     },
-    "content": {
-      "type": "text",
-      "required": true
-    },
     "author": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::author.author"
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }

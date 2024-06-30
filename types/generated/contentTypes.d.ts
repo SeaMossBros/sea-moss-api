@@ -806,12 +806,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     introduction: Attribute.Text;
     slug: Attribute.UID<'api::article.article', 'title'>;
     cover: Attribute.Media & Attribute.Required;
-    content: Attribute.Text & Attribute.Required;
     author: Attribute.Relation<
       'api::article.article',
       'oneToOne',
       'api::author.author'
     >;
+    content: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1213,7 +1213,7 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
     package_dimensions: Attribute.Enumeration<
       ['W8xL12xH4', 'W8xL12xH8', 'W8xL12xH12', 'W8xL12xH16', 'W8xL12xH20']
     >;
-    has_discount: Attribute.Boolean;
+    has_discount: Attribute.Boolean & Attribute.DefaultTo<false>;
     discount_value: Attribute.Decimal &
       Attribute.SetMinMax<{
         min: 0;

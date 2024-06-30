@@ -87,7 +87,8 @@
       ]
     },
     "has_discount": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "discount_value": {
       "type": "decimal",
