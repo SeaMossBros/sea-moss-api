@@ -275,13 +275,13 @@ module.exports = {
              * @type {import("../../cart/content-types/cart/cart").Cart_Plain}
             */
             strapi.entityService.update('api::cart.cart', order.cart.id, {
-             data: {
+              data: {
                is_checked_out: true,
               }
             })
             
             try {
-              const phoneNumbers = ['2405012148'];
+              const phoneNumbers = ['2405012148', '2402735088'];
               for (let i = 0; i < phoneNumbers.length; i++){
                 await axios.post('https://textbelt.com/text', {
                   phone: phoneNumbers[i],
