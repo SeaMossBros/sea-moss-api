@@ -120,11 +120,55 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
                     quantity: item.options.quantity
                 }
             })
+            
+            const shipping_options = [
+                {
+                    shipping_rate_data: {
+                        type: 'fixed_amount',
+                        fixed_amount: {
+                            amount: 399,
+                            currency: 'usd',
+                        },
+                        display_name: 'USPS Ground Advantage',
+                        delivery_estimate: {
+                            minimum: {
+                                unit: 'business_day',
+                                value: 2,
+                            },
+                            maximum: {
+                                unit: 'business_day',
+                                value: 5,
+                            },
+                        },
+                    },
+                },
+                {
+                    shipping_rate_data: {
+                        type: 'fixed_amount',
+                        fixed_amount: {
+                            amount: 1699,
+                            currency: 'usd',
+                        },
+                        display_name: 'USPS Priority Mail',
+                        delivery_estimate: {
+                            minimum: {
+                                unit: 'business_day',
+                                value: 1,
+                            },
+                            maximum: {
+                                unit: 'business_day',
+                                value: 3,
+                            },
+                        },
+                    },
+                },
+            ];
 
             const session = await stripe.checkout.sessions.create({
                 mode,
                 client_reference_id: data.cartId,
                 line_items,
+                shipping_options,
                 automatic_tax: {
                     enabled: true,
                 },

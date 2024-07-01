@@ -14,7 +14,8 @@ module.exports = {
         apiVersion: '2023-08-16'
       })
 
-      const session = await stripe.checkout.sessions.retrieve(session_id)
+      const session = await stripe.checkout.sessions.retrieve(session_id);
+      // console.log('session', session);
       const responseData = {
         status: session.status
       }
@@ -152,16 +153,46 @@ module.exports = {
               "async": false
             })
 
-            let cheapestRate = null;
-            for (let i = 0; i < shipmentRes.rates.length; i++) {
-              if (!cheapestRate || Number(shipmentRes.rates[i].amount) < Number(cheapestRate.amount)) {
-                cheapestRate = shipmentRes.rates[i];
+            const shippingAmountSelected = Number((session.total_details.amount_shipping / 100).toFixed(2));
+
+            let serviceLevelName = '';
+            switch (shippingAmountSelected) {
+              case 3.99:
+                serviceLevelName = 'Ground Advantage';
+                break;
+
+              case 16.99:
+                serviceLevelName = 'Priority Mail';
+                break;
+            
+              default:
+                break;
+            }
+
+            const costIsLessThanAndSimilar = (rateCost) => {
+              if (rateCost > shippingAmountSelected) return false;
+              if ((shippingAmountSelected - rateCost) > 1) return false;
+              return true;
+            }
+            
+            let shippingRate = shipmentRes.rates.filter(rate => 
+              rate.provider === 'USPS' 
+              && (costIsLessThanAndSimilar(Number(rate.amount)) || serviceLevelName === rate.servicelevel.name)
+            )[0] || null;
+
+            if (!shippingRate) {
+              let cheapestRate = null;
+              for (let i = 0; i < shipmentRes.rates.length; i++) {
+                if (!cheapestRate || Number(shipmentRes.rates[i].amount) < Number(cheapestRate.amount)) {
+                  cheapestRate = shipmentRes.rates[i];
+                }
               }
+              shippingRate = cheapestRate;
             }
 
             // Purchase the desired rate.
-            const transactionRes = !!cheapestRate ? await Shippo.transaction.create({
-              "rate": cheapestRate.object_id,
+            const transactionRes = !!shippingRate ? await Shippo.transaction.create({
+              "rate": shippingRate.object_id,
               "label_file_type": "PDF_2.3x7.5",
               "async": false
             }) : {
@@ -199,6 +230,7 @@ module.exports = {
 
             const updatedOrder = await strapi.entityService.update('api::order.order', order.id, {
               data: {
+                total: (session.amount_total / 100).toFixed(2),
                 payment_status: "success",
                 tracking_url_provider: transactionRes.tracking_url_provider,
                 label_url: `${process.env.SERVER_URL}/api/url-shortner/s/${shortCode}`,
@@ -249,7 +281,7 @@ module.exports = {
             })
             
             try {
-              const phoneNumbers = ['2405012148', '2402735088'];
+              const phoneNumbers = ['2405012148'];
               for (let i = 0; i < phoneNumbers.length; i++){
                 await axios.post('https://textbelt.com/text', {
                   phone: phoneNumbers[i],
