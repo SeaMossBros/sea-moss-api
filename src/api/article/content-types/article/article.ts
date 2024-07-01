@@ -14,6 +14,7 @@ export interface Article {
     author?: { data: Author };
     content?: string;
     introduction?: string;
+    time_to_finish_reading?: number;
   };
 }
 export interface Article_Plain {
@@ -24,6 +25,7 @@ export interface Article_Plain {
   author?: Author_Plain;
   content?: string;
   introduction?: string;
+  time_to_finish_reading?: number;
 }
 
 export interface Article_NoRelations {
@@ -34,6 +36,7 @@ export interface Article_NoRelations {
   author?: number;
   content?: string;
   introduction?: string;
+  time_to_finish_reading?: number;
 }
 
 export interface Article_AdminPanelLifeCycle {
@@ -44,4 +47,5 @@ export interface Article_AdminPanelLifeCycle {
   author?: AdminPanelRelationPropertyModification<Author_Plain>;
   content?: string;
   introduction?: string;
+  time_to_finish_reading?: number;
 }

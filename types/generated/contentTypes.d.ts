@@ -812,6 +812,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     >;
     content: Attribute.RichText;
     introduction: Attribute.RichText;
+    time_to_finish_reading: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

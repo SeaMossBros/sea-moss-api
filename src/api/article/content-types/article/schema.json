@@ -40,6 +40,9 @@
     },
     "introduction": {
       "type": "richtext"
+    },
+    "time_to_finish_reading": {
+      "type": "integer"
     }
   }
 }
